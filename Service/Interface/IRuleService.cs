@@ -1,4 +1,4 @@
-﻿using rules_of_seo.Model;
+﻿using rules_of_seo.Config;
 using System;
 using System.Collections.Generic;
 using System.Linq;
