@@ -9,7 +9,7 @@ app:
 	title: Word Counter
 	sub-title-ru: Подсчет слов и символов в документе или на отдельной странице для 40 языков
 	sub-title: Word counter provides word and character count in a document or on a entered text and recognizes more when 40 languages.
-	format: 
+	block: 
 		title: PDF Word Counter
 		description: Word counter provides word and character count in PDF document online
 	about:
