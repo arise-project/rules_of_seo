@@ -8,7 +8,7 @@ namespace rules_of_seo.Config
 {
     public class Rule
     {
-        public string Key { get; set; }
+        public string Slug { get; set; }
         public int MinKeywords { get; set; }
         public int MaxKeywords { get; set; }
         public int MinLength { get; set; }
