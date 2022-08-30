@@ -1,4 +1,5 @@
-﻿using System;
+﻿using rules_of_seo.Config;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,7 @@ namespace rules_of_seo.Model
 {
     public class Page
     {
+        [Slug("segment")]
         public string Segment { get; set; }
     }
 }
