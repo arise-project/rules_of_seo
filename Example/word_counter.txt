@@ -1,6 +1,6 @@
 applications:
 	segment: applications
-	block:
+	app:
 		title: Word Counter
 		description-ru: Подсчет слов и символов в документе или на определенной странице с поддержкой 40 языков.
 		description: Word counter provides word and character count in a document or on a entered text and recognizes more when 40 languages.
@@ -9,7 +9,7 @@ app:
 	title: Word Counter
 	sub-title-ru: Подсчет слов и символов в документе или на отдельной странице для 40 языков
 	sub-title: Word counter provides word and character count in a document or on a entered text and recognizes more when 40 languages.
-	block: 
+	format: 
 		title: PDF Word Counter
 		description: Word counter provides word and character count in PDF document online
 	about:

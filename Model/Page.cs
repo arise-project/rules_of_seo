@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace rules_of_seo.Model
 {
-    public class HowTo
+    public class Page
     {
+        public string Segment { get; set; }
     }
 }
