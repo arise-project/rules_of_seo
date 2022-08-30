@@ -1,15 +1,16 @@
 ﻿using rules_of_seo.Config;
-using rules_of_seo.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
+using rules_of_seo.Validation;
 
 namespace rules_of_seo.Service.Inerface
 {
-    public interface IRuleValidatorService
+    public interface ISlugService
     {
-        Dictionary<string, List<RuleMessage>> Validate(Dictionary<string, List<string>> content, Dictionary<string, Rule> rules);
+        List<IValidator> Assign(object root, string slug, List<IValidator> validators);
     }
 }

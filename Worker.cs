@@ -1,20 +1,24 @@
+using rules_of_seo.Service.Inerface;
+
 namespace rules_of_seo;
 
 public class Worker : BackgroundService
 {
+    IValidationScenarioService validationScenarioService;
+
     private readonly ILogger<Worker> _logger;
 
-    public Worker(ILogger<Worker> logger)
+    
+    public Worker(
+        IValidationScenarioService validationScenarioService,
+        ILogger<Worker> logger)
     {
+        this.validationScenarioService = validationScenarioService;
         _logger = logger;
     }
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
-        while (!stoppingToken.IsCancellationRequested)
-        {
-            _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
-            await Task.Delay(1000, stoppingToken);
-        }
+        await Task.Run(() => validationScenarioService.Execute());
     }
 }

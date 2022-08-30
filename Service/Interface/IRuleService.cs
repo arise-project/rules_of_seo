@@ -5,10 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace rules_of_seo.Service
+namespace rules_of_seo.Service.Inerface
 {
     public interface IRuleService
     {
-        public Dictionary<string, Rule> GetRules(string settingsFile);
+        Dictionary<string, Rule> GetRules(string settingsFile);
     }
 }

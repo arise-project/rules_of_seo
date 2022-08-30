@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace rules_of_seo.Service
+namespace rules_of_seo.Service.Inerface
 {
     public interface IValidationScenarioService
     {
-        public void Execute();
+        void Execute();
     }
 }
