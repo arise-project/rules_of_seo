@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace rules_of_seo.Model
 {
-    [Slug("applications")]
-    public class Applications : Page
+    public class Applications
     {
-        [Slug("app")]
-        public Block App { get; set; }
+        [Slug("applications-segment")]
+        public string Segment { get; set; }
+        public AppBlock App { get; set; }
     }
 }

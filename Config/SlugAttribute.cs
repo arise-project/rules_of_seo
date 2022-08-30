@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace rules_of_seo.Config
 {
-    [AttributeUsage(System.AttributeTargets.Class | System.AttributeTargets.Property)]
+    [AttributeUsage(System.AttributeTargets.Property)]
     public class SlugAttribute : System.Attribute
     {
         public string Slug { get; set; }

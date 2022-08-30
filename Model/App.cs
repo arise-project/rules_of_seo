@@ -7,18 +7,17 @@ using System.Threading.Tasks;
 
 namespace rules_of_seo.Model
 {
-    [Slug("app")]
-    public class App : Page
+    public class App
     {
-        [Slug("title")]
+        [Slug("app-segment")]
+        public string Segment { get; set; }
+        [Slug("app-title")]
         public string Title { get; set; }
-        [Slug("sub-title")]
+        [Slug("app-sub-title")]
         public string SubTitle { get; set; }
-        [Slug("sub-title-ru")]
+        [Slug("app-sub-title-ru")]
         public string SubTitleRu { get; set; }
-        [Slug("format")]
-        public Block Format { get; set; }
-        [Slug("about")]
-        public Block About { get; set; }
+        public FormatBlock Format { get; set; }
+        public AppAboutBlock About { get; set; }
     }
 }

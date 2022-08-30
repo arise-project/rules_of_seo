@@ -7,20 +7,19 @@ using System.Threading.Tasks;
 
 namespace rules_of_seo.Model
 {
-    [Slug("format")]
-    public class Format : Page
+    public class Format
     {
-        [Slug("title")]
+        [Slug("format-segment")]
+        public string Segment { get; set; }
+        [Slug("format-title")]
         public string Title { get; set; }
-        [Slug("sub-title")]
+        [Slug("format-sub-title")]
         public string SubTitle { get; set; }
-        [Slug("sub-title-ru")]
+        [Slug("format-sub-title-ru")]
         public string SubTitleRu { get; set; }
-        [Slug("button")]
+        [Slug("format-button")]
         public string Button { get; set; }
-        [Slug("about")]
-        public Block About { get; set; }
-        [Slug("how-to")]
-        public Block HowTo { get; set; }
+        public FormatAboutBlock About { get; set; }
+        public FormatHowToBlock HowTo { get; set; }
     }
 }
