@@ -1,26 +1,5 @@
-settings:
-  common: 
-    agile:        true
-    employer:     true
-    description:  true
-    relations:    true
-    language:     true
-    architecture: true
-    stack:        true
-    technology:   true
-    environment:  true
-    keywords:     true
-    platform:     true
-  parser: 
-    agile:            key-multi-value
-    employer:         struct
-    description:      key-value
-    matches:          line
-    relations:        key-list
-    language:         key-multi-value
-    architecture:     key-multi-value
-    stack:            key-list-key
-    technology:       key-multi-value
-    environment:      key-multi-value
-    keywords:         key-multi-value
-    platform:         key-multi-value
+keywords-file: Data\keywords.csv
+competitor-keywords-file: Data\competitor_keywords.txt
+page-file:
+competitor-files: Data\competitors.txt
+rules:

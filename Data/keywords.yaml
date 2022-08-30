@@ -1,0 +1,16 @@
+	-
+		keyword: word counter
+		low: 100K
+		high: 1M
+	-
+		keyword: character count
+		low: 100K
+		high: 1M
+	-
+		keyword: word calculator
+		low: 1K
+		high: 10K
+	-
+		keyword: character counter online
+		low: 1K
+		high: 10K

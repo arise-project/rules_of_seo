@@ -1,0 +1,34 @@
+applications:
+	segment: applications
+	block:
+		title: Word Counter
+		description-ru: Подсчет слов и символов в документе или на определенной странице с поддержкой 40 языков.
+		description: Word counter provides word and character count in a document or on a entered text and recognizes more when 40 languages.
+app:
+	segment: word-counter
+	title: Word Counter
+	sub-title-ru: Подсчет слов и символов в документе или на отдельной странице для 40 языков
+	sub-title: Word counter provides word and character count in a document or on a entered text and recognizes more when 40 languages.
+	format: 
+		Title: PDF Word Counter
+		Description: Word counter provides word and character count in PDF document online
+	about:
+		Title: About PDF Word Counter
+		Description-ru: Мгновенный подсчет слов и букв в документе в документе вне зависимости от языка документа. Поддержка большинства типов документов и ввод текста напрямую, выбор страниц для которых нужно произвести расчет. Your documents are processed using the Aspose API; we do not store your documents and do not transfer them to third parties. Your documents are completely safe.
+		Description: Instant word and letter count in a document, regardless of the document language. Supports most document types and direct text input, selecting pages for which you want to do the calculation. Your documents are processed using the Aspose API; we do not store your documents and do not transfer them to third parties. Your documents are completely safe.
+
+format:
+	segment: doc-word-counter
+	title: DOC Words counter
+	sub title: Count words and chars in DOC documents online.
+	button: Count
+	about: 
+		title: About DOC Word Counter
+		sescription: DOC Word Counter is a web service that allows you to count words and letters in your document. This simple application has several modes of operation, you can count all the words and letters in a DOC document, enter the text directly and count how many letters and words it has, count statistics for specific pages only, this is useful if you have commissioned or produced a texts. An easy way to calculate words and chars in document online for free
+	how-to:
+		_3:
+			Title: Perform counting words in document
+			Description: Click on the COUNT button. Your DOC files will be uploaded and parsed to calculate words and chars count.
+		_4:
+			title: Perform counting words in text
+			description: Click on the COUNT button. Your text will be uploaded and parsed to calculate words and chars count.
