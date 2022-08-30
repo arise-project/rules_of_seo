@@ -17,7 +17,6 @@ namespace rules_of_seo.Model
         public string SubTitle { get; set; }
         [Slug("format-sub-title-ru")]
         public string SubTitleRu { get; set; }
-        [Slug("format-button")]
         public string Button { get; set; }
         public FormatAboutBlock About { get; set; }
         public FormatHowToBlock HowTo { get; set; }
