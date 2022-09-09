@@ -4,11 +4,9 @@ namespace rules_of_seo;
 
 public class Worker : BackgroundService
 {
-    IValidationScenarioService validationScenarioService;
-
+    private readonly IValidationScenarioService validationScenarioService;
     private readonly ILogger<Worker> _logger;
 
-    
     public Worker(
         IValidationScenarioService validationScenarioService,
         ILogger<Worker> logger)

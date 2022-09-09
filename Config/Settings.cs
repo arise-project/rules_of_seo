@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace rules_of_seo.Config
+﻿namespace rules_of_seo.Config
 {
     public class Settings
     {

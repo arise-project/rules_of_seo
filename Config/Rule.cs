@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace rules_of_seo.Config
+﻿namespace rules_of_seo.Config
 {
     public class Rule
     {
@@ -21,5 +15,9 @@ namespace rules_of_seo.Config
         public bool IsKeyword { get; set; }
         public bool IsUrl { get; set; }
         public bool FirstIncludeOthers { get; set; }
+        public bool StartKeyword { get; set; }
+        public bool EndKeyword { get; set; }
+        public string Ref { get; set; }
+        public bool MiddleKeyword { get; set; }
     }
 }

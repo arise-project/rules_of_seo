@@ -1,1 +1,1 @@
-﻿Attention: set location to united states or interesting region in keywordsd planner
+﻿Pay attention: set location to united states or interesting region in keywordsd planner
