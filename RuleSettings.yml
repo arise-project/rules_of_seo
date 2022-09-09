@@ -3,120 +3,7 @@ competitor-keywords-file: Data\competitor_keywords.txt
 page-file:
 competitor-files: Data\competitors.txt
 rules:
-	- slug: applications-segment
-      is-keyword: true
-      is-url: true
-    - slug: applications-title
-      is-keyword: true
-      is-url:
-    - slug: app-segment
-      is-keyword: true
-      is-url: true
-    - slug: app-title
-      is-keyword: true
-    - slug: app-block-title
-      is-keyword: true
-    - slug: app-about-title
-      is-keyword: true
-    - slug: format-segment
-      is-keyword: true
-      is-url: true
-    - slug: format-title
-      is-keyword: true
-    - slug: format-about-title
-      is-keyword: true
-    - slug: app-sub-title
-      min-keywords:
-      max-keywords:
-      min-length:
-      max-max:
-      max-competitorLength:
-      allow-additionParagraph:
-      unique:
-      competitors-mix:
-      check-plagiat:
-      is-keyword:
-      is-url:
-      first-include-others:
-    - slug: app-sub-title
-      min-keywords:
-      max-keywords:
-      min-length:
-      max-max:
-      max-competitorLength:
-      allow-additionParagraph:
-      unique:
-      competitors-mix:
-      check-plagiat:
-      is-keyword:
-      is-url:
-      first-include-others:
-    - slug: app-sub-title-ru
-      min-keywords:
-      max-keywords:
-      min-length:
-      max-max:
-      max-competitorLength:
-      allow-additionParagraph:
-      unique:
-      competitors-mix:
-      check-plagiat:
-      is-keyword:
-      is-url:
-      first-include-others:
-    - slug: app-about-title
-      min-keywords:
-      max-keywords:
-      min-length:
-      max-max:
-      max-competitorLength:
-      allow-additionParagraph:
-      unique:
-      competitors-mix:
-      check-plagiat:
-      is-keyword:
-      is-url:
-      first-include-others:
-    - slug: app-about-description-ru
-      min-keywords:
-      max-keywords:
-      min-length:
-      max-max:
-      max-competitorLength:
-      allow-additionParagraph:
-      unique:
-      competitors-mix:
-      check-plagiat:
-      is-keyword:
-      is-url:
-      first-include-others:
-    - slug: app-about-description
-      min-keywords:
-      max-keywords:
-      min-length:
-      max-max:
-      max-competitorLength:
-      allow-additionParagraph:
-      unique:
-      competitors-mix:
-      check-plagiat:
-      is-keyword:
-      is-url:
-      first-include-others:
     - slug: applications-app-title
-      min-keywords:
-      max-keywords:
-      min-length:
-      max-max:
-      max-competitorLength:
-      allow-additionParagraph:
-      unique:
-      competitors-mix:
-      check-plagiat:
-      is-keyword:
-      is-url:
-      first-include-others:
-    - slug: applications-app-description-ru
       min-keywords:
       max-keywords:
       min-length:
@@ -142,98 +29,24 @@ rules:
       is-keyword:
       is-url:
       first-include-others:
-    - slug: applications-segment
-      min-keywords:
-      max-keywords:
-      min-length:
-      max-max:
-      max-competitorLength:
-      allow-additionParagraph:
-      unique:
-      competitors-mix:
-      check-plagiat:
-      is-keyword:
-      is-url:
-      first-include-others:
-    - slug: format-segment
-      min-keywords:
-      max-keywords:
-      min-length:
-      max-max:
-      max-competitorLength:
-      allow-additionParagraph:
-      unique:
-      competitors-mix:
-      check-plagiat:
-      is-keyword:
-      is-url:
-      first-include-others:
-    - slug: format-title
-      min-keywords:
-      max-keywords:
-      min-length:
-      max-max:
-      max-competitorLength:
-      allow-additionParagraph:
-      unique:
-      competitors-mix:
-      check-plagiat:
-      is-keyword:
-      is-url:
-      first-include-others:
-    - slug: format-sub-title
-      min-keywords:
-      max-keywords:
-      min-length:
-      max-max:
-      max-competitorLength:
-      allow-additionParagraph:
-      unique:
-      competitors-mix:
-      check-plagiat:
-      is-keyword:
-      is-url:
-      first-include-others:
-    - slug: format-sub-title-ru
-      min-keywords:
-      max-keywords:
-      min-length:
-      max-max:
-      max-competitorLength:
-      allow-additionParagraph:
-      unique:
-      competitors-mix:
-      check-plagiat:
-      is-keyword:
-      is-url:
-      first-include-others:
-    - slug: format-about-title
-      min-keywords:
-      max-keywords:
-      min-length:
-      max-max:
-      max-competitorLength:
-      allow-additionParagraph:
-      unique:
-      competitors-mix:
-      check-plagiat:
-      is-keyword:
-      is-url:
-      first-include-others:
-    - slug: format-about-description-ru
-      min-keywords:
-      max-keywords:
-      min-length:
-      max-max:
-      max-competitorLength:
-      allow-additionParagraph:
-      unique:
-      competitors-mix:
-      check-plagiat:
-      is-keyword:
-      is-url:
-      first-include-others:
-    - slug: format-about-description
+	  - slug: app-segment
+      is-keyword: true
+      is-url: true
+    - slug: app-title
+      is-keyword: true
+    - slug: app-block-title
+      is-keyword: true
+    - slug: app-about-title
+      is-keyword: true
+      end-keyword: true
+    - slug: app-sub-title
+      min-keywords: 1
+      max-keywords: 2
+      start-keyword: true
+      min-length: 50
+      max-max: 90
+      allow-additionParagraph: true
+    - slug: app-about-description
       min-keywords:
       max-keywords:
       min-length:
@@ -259,19 +72,6 @@ rules:
       is-keyword:
       is-url:
       first-include-others:
-    - slug: app-format-description-ru
-      min-keywords:
-      max-keywords:
-      min-length:
-      max-max:
-      max-competitorLength:
-      allow-additionParagraph:
-      unique:
-      competitors-mix:
-      check-plagiat:
-      is-keyword:
-      is-url:
-      first-include-others:
     - slug: app-format-description
       min-keywords:
       max-keywords:
@@ -285,7 +85,12 @@ rules:
       is-keyword:
       is-url:
       first-include-others:
-    - slug: format-how-to-title
+    - slug: format-segment
+      is-keyword: true
+      is-url: true
+    - slug: format-title
+      is-keyword: true
+    - slug: format-sub-title
       min-keywords:
       max-keywords:
       min-length:
@@ -298,7 +103,23 @@ rules:
       is-keyword:
       is-url:
       first-include-others:
-    - slug: format-how-to-description-ru
+    - slug: format-about-title
+      is-keyword: true
+      end-keyword: true
+    - slug: format-about-description
+      min-keywords:
+      max-keywords:
+      min-length:
+      max-max:
+      max-competitorLength:
+      allow-additionParagraph:
+      unique:
+      competitors-mix:
+      check-plagiat:
+      is-keyword:
+      is-url:
+      first-include-others:
+    - slug: format-how-to-title
       min-keywords:
       max-keywords:
       min-length:
