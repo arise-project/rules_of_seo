@@ -16,7 +16,6 @@ app:
 		title: About PDF Word Counter
 		description-ru: Мгновенный подсчет слов и букв в документе в документе вне зависимости от языка документа. Поддержка большинства типов документов и ввод текста напрямую, выбор страниц для которых нужно произвести расчет. Your documents are processed using the Aspose API; we do not store your documents and do not transfer them to third parties. Your documents are completely safe.
 		description: Instant word and letter count in a document, regardless of the document language. Supports most document types and direct text input, selecting pages for which you want to do the calculation. Your documents are processed using the Aspose API; we do not store your documents and do not transfer them to third parties. Your documents are completely safe.
-		description: Instant word counter and character count in a document, in any language. Supports most document types and direct text input to count words in it, picking the pages for which you want to make the calculation. Your documents are processed using the Aspose API; we do not store your documents and do not transfer them to third parties. Your documents are completely safe.
 format:
 	segment: doc-word-counter
 	title: DOC Words counter
@@ -26,6 +25,7 @@ format:
 		title: About DOC Word Counter
 		description: DOC Word Counter is a web service that allows you to count words and letters in your document. This simple application has several modes of operation, you can count all the words and letters in a DOC document, enter the text directly and count how many letters and words it has, count statistics for specific pages only, this is useful if you have commissioned or produced a texts. An easy way to calculate words and chars in document online for free
 	how-to:
+		title: How to Word Counter works
 		-
 			title: Perform counting words in document
 			description: Click on the COUNT button. Your DOC files will be uploaded and parsed to calculate words and chars count.
