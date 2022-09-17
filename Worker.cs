@@ -1,22 +1,29 @@
+using System.Threading;
+using System.Threading.Tasks;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using rules_of_seo.Service.Inerface;
 
-namespace rules_of_seo;
-
-public class Worker : BackgroundService
+namespace rules_of_seo
 {
-    private readonly IValidationScenarioService validationScenarioService;
-    private readonly ILogger<Worker> _logger;
-
-    public Worker(
-        IValidationScenarioService validationScenarioService,
-        ILogger<Worker> logger)
+    public class Worker : BackgroundService
     {
-        this.validationScenarioService = validationScenarioService;
-        _logger = logger;
-    }
+        private readonly IValidationUnit  _validation;
+        private readonly ILogger<Worker> _logger;
 
-    protected override async Task ExecuteAsync(CancellationToken stoppingToken)
-    {
-        await Task.Run(() => validationScenarioService.Execute());
+        public Worker(
+            IValidationUnit validation,
+            ILogger<Worker> logger)
+        {
+            _validation = validation;
+            _logger = logger;
+        }
+
+        protected override async Task ExecuteAsync(
+            CancellationToken stoppingToken)
+        {
+            await Task.Run(() => _validation.Execute());
+        }
     }
 }
+

@@ -3,7 +3,9 @@
     public class Texts
     {
         public Applications Applications { get; set; }
+
         public App App { get; set; }
+        
         public Format Format { get; set; }
     }
 }

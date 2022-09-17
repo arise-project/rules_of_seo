@@ -5,8 +5,10 @@ namespace rules_of_seo.Model
     {
         [Slug("app-about-title")]
         public string Title { get; set; }
+
         [Slug("app-about-description-ru")]
         public string DescriptionRu { get; set; }
+        
         [Slug("app-about-description")]
         public string Description { get; set; }
     }

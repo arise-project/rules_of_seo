@@ -5,13 +5,18 @@ namespace rules_of_seo.Model
     {
         [Slug("app-segment")]
         public string Segment { get; set; }
+
         [Slug("app-title")]
         public string Title { get; set; }
+
         [Slug("app-sub-title")]
         public string SubTitle { get; set; }
+
         [Slug("app-sub-title-ru")]
         public string SubTitleRu { get; set; }
+
         public FormatBlock Format { get; set; }
+        
         public AppAboutBlock About { get; set; }
     }
 }

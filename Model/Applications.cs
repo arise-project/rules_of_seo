@@ -5,6 +5,7 @@ namespace rules_of_seo.Model
     {
         [Slug("applications-segment")]
         public string Segment { get; set; }
+        
         public AppBlock App { get; set; }
     }
 }

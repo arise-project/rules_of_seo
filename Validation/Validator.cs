@@ -1,8 +1,19 @@
-﻿using rules_of_seo.Model;
+﻿using System.Collections.Generic;
+using rules_of_seo.Model;
+using rules_of_seo.Validation.Interface;
+
 namespace rules_of_seo.Validation
 {
-    public interface IValidator
+    public class Validator : IValidator
     {
-        List<RuleMessage> Validate();
+        public Validator()
+        {
+
+        }
+
+        public List<RuleMessage> Validate()
+        {
+            return null;
+        }
     }
 }
