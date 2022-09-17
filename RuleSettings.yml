@@ -7,7 +7,7 @@ rules:
       ref: app-title
     - slug: applications-app-description
       ref: app-sub-title
-	  - slug: app-segment
+	- slug: app-segment
       is-keyword: true
       is-url: true
     - slug: app-title

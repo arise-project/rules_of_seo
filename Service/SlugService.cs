@@ -14,10 +14,15 @@ namespace rules_of_seo.Service
             string slug, 
             List<IValidator> validators)
         {
-            var children = root.GetType().GetProperties()
-                .Select(p => 
-                p.GetCustomAttributes(typeof(SlugAttribute), false)
-                .First());
+            var children = 
+                root
+                    .GetType()
+                    .GetProperties()
+                    .Select(p => 
+                    p.GetCustomAttributes(
+                            typeof(SlugAttribute), 
+                            false)
+                    .First());
 
             return null;
         }

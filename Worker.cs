@@ -22,7 +22,9 @@ namespace rules_of_seo
         protected override async Task ExecuteAsync(
             CancellationToken stoppingToken)
         {
-            await Task.Run(() => _validation.Execute());
+            await Task.Run(
+                () => _validation.Execute(), 
+                stoppingToken);
         }
     }
 }
