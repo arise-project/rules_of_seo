@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
+using rules_of_seo.Model;
 
 namespace rules_of_seo.Service
 {
-    public class RuleKeyService : IRuleKeyService
+    public class KeywordService : IKeywordService
     {
-        public List<string> Read()
+        public List<Keyword> Read()
         {
             return null;
         }

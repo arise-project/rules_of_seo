@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -7,6 +8,8 @@ using rules_of_seo.Service;
 using rules_of_seo.Service.Inerface;
 using rules_of_seo.Validation;
 using rules_of_seo.Validation.Interface;
+using YamlDotNet.Serialization;
+using YamlDotNet.Serialization.NamingConventions;
 
 namespace rules_of_seo
 {
@@ -32,7 +35,23 @@ namespace rules_of_seo
             services.AddSingleton<IValidationUnit, ValidationUnit>();
             services.AddSingleton<IValidator, Validator>();
             
+            services.AddSingleton((f) => BuildSettings());
+            
             services.AddHostedService<Worker>();
+        }
+        
+        private static Settings BuildSettings()
+        {
+            string text = System.IO.File.ReadAllText(@"RuleSettings.yml");
+            Console.WriteLine("----------------------------------");
+            Console.WriteLine("Rule Settings:");
+            Console.WriteLine(text);
+            Console.WriteLine("----------------------------------");
+            var deserializer = new DeserializerBuilder()
+                .WithNamingConvention(CamelCaseNamingConvention.Instance)
+                .Build();
+
+            return deserializer.Deserialize<Settings>(text);
         }
     }
 }

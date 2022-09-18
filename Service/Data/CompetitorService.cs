@@ -3,9 +3,9 @@ using rules_of_seo.Model;
 
 namespace rules_of_seo.Service
 {
-    public class KeywordService
+    public class CompetitorService : ICompetitorService
     {
-        public List<Keyword> Read()
+        public List<Competitor> Read()
         {
             return null;
         }
