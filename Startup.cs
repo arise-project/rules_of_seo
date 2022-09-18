@@ -27,7 +27,7 @@ namespace rules_of_seo
         
         public static void Services(IServiceCollection services)
         {
-            services.Configure<AppConfiguration>(configuration.GetSection("App"));
+            services.Configure<AppConfig>(configuration.GetSection("App"));
             services.AddSingleton<IPageService, PageService>();
             services.AddSingleton<IRuleService, RuleService>();
             services.AddSingleton<IRuleValidatorService, RuleValidatorService>();
@@ -42,7 +42,7 @@ namespace rules_of_seo
         
         private static Settings BuildSettings()
         {
-            string text = System.IO.File.ReadAllText(@"RuleSettings.yml");
+            string text = File.ReadAllText(@"RuleSettings.yml");
             Console.WriteLine("----------------------------------");
             Console.WriteLine("Rule Settings:");
             Console.WriteLine(text);

@@ -9,12 +9,12 @@ namespace rules_of_seo.Service
 {
     public class ValidationUnit : IValidationUnit
     {
-        private readonly AppConfiguration _config;
+        private readonly AppConfig _config;
         private readonly IRuleService _ruleService;
         private readonly IPageService _pageService;
 
         public ValidationUnit(
-            IOptions<AppConfiguration> config,
+            IOptions<AppConfig> config,
             IRuleService ruleService, 
             IPageService pageService
             )

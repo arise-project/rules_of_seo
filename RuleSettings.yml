@@ -1,7 +1,6 @@
-keywords-file: Data\keywords.csv
-competitor-keywords-file: Data\competitor_keywords.txt
-page-file:
-competitor-files: Data\competitors.txt
+keywords-file: keywords.csv
+competitor-keywords-file: competitor_keywords.txt
+competitor-file: competitors.txt
 rules:
     - slug: applications-app-title
       ref: app-title

@@ -14,12 +14,12 @@ namespace rules_of_seo
 {
     public class Worker : BackgroundService
     {
-        private readonly AppConfiguration _config;
+        private readonly AppConfig _config;
         private readonly IValidationUnit  _validation;
         private readonly ILogger<Worker> _logger;
 
         public Worker(
-            IOptions<AppConfiguration> config,
+            IOptions<AppConfig> config,
             IValidationUnit validation,
             ILogger<Worker> logger)
         {
