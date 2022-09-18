@@ -4,7 +4,7 @@ namespace rules_of_seo.Service
 {
     public class PageService : IPageService
     {
-        public Texts Read(string fileName)
+        public Page Read(string fileName)
         {
             return null;
         }
