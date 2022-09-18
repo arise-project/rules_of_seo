@@ -51,7 +51,8 @@ namespace rules_of_seo
                 .WithNamingConvention(CamelCaseNamingConvention.Instance)
                 .Build();
 
-            return deserializer.Deserialize<Settings>(text);
+            var settings  = deserializer.Deserialize<Settings>(text);
+            return settings;
         }
     }
 }

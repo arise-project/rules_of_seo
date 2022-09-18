@@ -1,9 +1,6 @@
-using System.Net.Http.Json;
 using System.Text.Json;
-using System.Text.Json.Serialization;
 using System.Threading;
 using System.Threading.Tasks;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
@@ -17,21 +14,25 @@ namespace rules_of_seo
         private readonly AppConfig _config;
         private readonly IValidationUnit  _validation;
         private readonly ILogger<Worker> _logger;
+        private readonly Settings _settings;
 
         public Worker(
             IOptions<AppConfig> config,
             IValidationUnit validation,
-            ILogger<Worker> logger)
+            ILogger<Worker> logger,
+            Settings settings)
         {
             _config = config.Value;
             _validation = validation;
             _logger = logger;
+            _settings = settings;
+            //_logger.LogInformation("settings: "+ JsonSerializer.Serialize(settings));
         }
 
         protected override async Task ExecuteAsync(
             CancellationToken stoppingToken)
         {
-            _logger.LogInformation("App: Config:"+ JsonSerializer.Serialize(_config));
+            //_logger.LogInformation("App: Config:"+ JsonSerializer.Serialize(_config));
             await Task.Run(
                 () => _validation.Execute(), 
                 stoppingToken);

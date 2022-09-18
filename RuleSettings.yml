@@ -6,7 +6,7 @@ rules:
       ref: app-title
     - slug: applications-app-description
       ref: app-sub-title
-	- slug: app-segment
+    - slug: app-segment
       is-keyword: true
       is-url: true
     - slug: app-title
@@ -22,7 +22,7 @@ rules:
       start-keyword: true
       min-length: 50
       max-length: 90
-      allow-additionParagraph: true
+      allow-addition-paragraph: true
     - slug: app-about-description
       min-keywords: 1
       max-keywords: 3
