@@ -12,7 +12,7 @@ namespace rules_of_seo.Service
             this.slugResolver = slugResolver;
         }
 
-        public Page Read(string fileName)
+        public List<PageChunk> Read(string fileName)
         {
             var w = new HierarchyWalker(slugResolver);
             var texts = new List<PageChunk>();
@@ -28,7 +28,7 @@ namespace rules_of_seo.Service
             }
             while(c != null);
 
-            return null;
+            return texts;
         }
     }
 }

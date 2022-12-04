@@ -4,6 +4,6 @@ namespace rules_of_seo.Service.Inerface
 {
     public interface IPageService
     {
-        Page Read(string fileName);
+        List<PageChunk> Read(string fileName);
     }
 }

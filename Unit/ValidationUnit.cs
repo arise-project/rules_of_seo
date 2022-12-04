@@ -27,13 +27,17 @@ namespace rules_of_seo.Service
         public void Execute()
         {
             var rules = _ruleService.GetRules(_config.SettingsFile);
-            var pages = new List<Page>();
+            var pages = new List<PageFile>();
             foreach (var textFile in Directory.GetFiles(
                 _config.TextFolder, 
                 "*.json", 
                 SearchOption.TopDirectoryOnly))
             {
-                pages.Add(_pageService.Read(textFile));
+                pages.Add(
+                    new PageFile 
+                    { 
+                        Chunks = _pageService.Read(textFile) 
+                    });
             }
         }
     }

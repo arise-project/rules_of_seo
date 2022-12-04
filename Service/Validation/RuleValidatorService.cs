@@ -7,7 +7,7 @@ namespace rules_of_seo.Service
     public class RuleValidatorService : IRuleValidatorService
     {
         public Dictionary<string, List<RuleMessage>> Validate(
-            Dictionary<string, List<string>> content, 
+            PageFile content,
             Dictionary<string, Rule> rules)
         {
             return null;

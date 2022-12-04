@@ -6,7 +6,7 @@ namespace rules_of_seo.Service.Inerface
     public interface IRuleValidatorService
     {
         Dictionary<string, List<RuleMessage>> Validate(
-            Dictionary<string, List<string>> content, 
+            PageFile content, 
             Dictionary<string, Rule> rules);
     }
 }
