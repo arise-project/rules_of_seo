@@ -21,7 +21,10 @@ namespace rules_of_seo.Service
             do
             {
                 c = w.Read();
-                texts.Add(c);
+                if(!string.IsNullOrEmpty(c.Slug))
+                {
+                    texts.Add(c);
+                }
             }
             while(c != null);
 
