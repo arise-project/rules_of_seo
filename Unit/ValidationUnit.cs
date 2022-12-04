@@ -34,7 +34,7 @@ namespace rules_of_seo.Service
                 SearchOption.TopDirectoryOnly))
             {
                 pages.Add(
-                    new PageFile 
+                    new PageFile(textFile)
                     { 
                         Chunks = _pageService.Read(textFile) 
                     });

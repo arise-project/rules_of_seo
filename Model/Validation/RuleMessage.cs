@@ -7,6 +7,11 @@ namespace rules_of_seo.Model
 
         public Rule Rule { get; set; }
         
-        public string MessqageLevel { get; set; }
+        public MessageLevel MessageLevel { get; set; }
+
+        public override string ToString()
+        {
+            return $"{this.MessageLevel}: {Rule.Slug} {Message}";
+        }
     }
 }
