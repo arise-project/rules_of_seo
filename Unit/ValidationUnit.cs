@@ -28,7 +28,10 @@ namespace rules_of_seo.Service
         {
             var rules = _ruleService.GetRules(_config.SettingsFile);
             var pages = new List<Page>();
-            foreach (var textFile in Directory.GetFiles( _config.TextFolder, "*.md", SearchOption.TopDirectoryOnly))
+            foreach (var textFile in Directory.GetFiles(
+                _config.TextFolder, 
+                "*.json", 
+                SearchOption.TopDirectoryOnly))
             {
                 pages.Add(_pageService.Read(textFile));
             }

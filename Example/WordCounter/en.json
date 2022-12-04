@@ -1,0 +1,149 @@
+{
+  "anotherFile": "Count words in other documents",
+  "h1Text": "Word Counter",
+  "h2Text": "Count words and characters in documents",
+  "metaTitle": "Word Counter | Online and Free | Aspose.PDF",
+  "mainTitle": "About Word Counter",
+  "mainText": "<p><strong>Word Counter</strong> is a web service that allows you to count words and letters in your text. Word counter calculates the words and letters in the text immediately with your browser. This is useful if you have commissioned or produced a text. And it doesn't limited on plain text. Word counter also handles practically all kinds of document formats, including images. In total, it supports 162 popular file formats. For the various popular formats from Pdf, DOCX, XSLX, PPTX family we use our unique algorithm, which will help to find text in the most various sections of the document. The ability to count the number of words and letters on a single page adds even more flexibility. We do not store your documents and do not transfer them to third parties. Your documents are completely safe and an easy way to calculate words and chars in document online for free.</p>",
+  "metaDescription": "Count words and characters. Without registration and captcha. It's secure and private.",
+  "metaKeywords": "word counter, character count, word calculator, character counter online",
+  "ByNumber": "By page number",
+  "pageRange": "Page range",
+  "fillRequiredFieldsError": "Select at least one file or write text",
+  "writeYourTextHere": "Write your text here",
+  "fileName": "File name",
+  "wordsCount": "Words count",
+  "charsCount": "Chars count",
+  "message": "Message",
+  "noFilesProcessedError": "An unknown error occurred while processing files. Please try again later.",
+  "tryOtherFormatsTitle": "Try other word counters:",
+  "howtoTitle": "How to count words in text",
+  "howItWorksItems": [
+    {
+      "title": "Enter Aspose.PDF Free Application website",
+      "description": "Open your browser in a PDF free application web site and go to Word Counter tool app."
+    },
+    {
+      "title": "Write or copy text",
+      "description": "Click inside the text area to type or copy text. You are not limited in text length."
+    },
+    {
+      "title": "Perform counting",
+      "description": "Click on <strong>COUNT</strong> button. Your text will be uploaded and processed."
+    },
+    {
+      "title": "Get the results",
+      "description": "After processing of words and characters calculation results will be shown in downloads page"
+    },
+    {
+      "title": "eMail option",
+      "description": "You can also send mail with calculation results to your email address."
+    }
+  ],
+  "faqTitle": "FAQ",
+  "faqItems": [
+    {
+      "q": "❓ How can I count words and characters in entered text?",
+      "a": "First, you need to enter text or copy it for count: type text in input area. Then click the 'Count' button. When calculation for {1N} document is completed, you can see results."
+    },
+    {
+      "q": "⏱️ How long does it take to count words and characters?",
+      "a": "This Word Counter works fast. You can perform the calculation for text in a few seconds."
+    },
+    {
+      "q": "🛡️ Is it safe to count words from text using free Word Counter app?",
+      "a": "Of course! The download link of result files will be available instantly after counting. We delete uploaded files after 24 hours and the download links will stop working after this time period. No one has access to your files. Word Counter is absolutely safe."
+    },
+    {
+      "q": "💻 Can I count words and characters for text on Mac OS, Android or Linux?",
+      "a": "Yes, you can use free Word Counter on any operating system that has a web browser. Our {1N} Word Counter works online and does not require any software installation."
+    }
+  ],
+  "featuresItems": [
+    {
+      "title": "Fast and Easy Word Counter",
+      "description": "Upload your document and click on the \"COUNT\" button. You will get a calculation results with single pages as soon as the calculation is performed."
+    },
+    {
+      "title": "Word Counter from anywhere",
+      "description": "It works from all platforms including Windows, Mac, Android and iOS. Count words and characters for all {1N} files, pages or for entered text. Count words in {1N} files online, easily and free."
+    },
+    {
+      "title": "Word Counter Quality",
+      "description": "All files are processed using Aspose APIs, which are being used by many Fortune 100 companies across 114 countries."
+    }
+  ],
+  "*": {
+    "h1Text": "{1N} Word counter",
+    "h2Text": "Count words and characters in {1N} documents",
+    "mainTitle": "About Word counter",
+    "mainText": "<p><strong>Word Counter</strong> is an instant word and character count in a document, regardless of the document language. An easy way to calculate words and chars in document online for free. This simple application has several modes of operation, you can count all the words and letters in a {1N} document, enter the text directly and count how many letters and words it has, count statistics for specific pages only, this is useful if you have commissioned or produced a text. It supports most document types, selecting pages for which you want to do the calculation. Word counter handles practically all kinds of document formats, including images. In total, it supports 162 popular file formats. For the various popular formats from Pdf, DOCX, XSLX, PPTX family we use our unique algorithm, which will help to find text in the most various sections of the document. The ability to count the number of words and letters on a single page adds even more flexibility. We do not store your documents and do not transfer them to third parties. Your documents are completely safe.</p>",
+    "metaTitle": "{1N} Word counter | Online and Free | Aspose.PDF",
+    "metaDescription": "Count words and characters in {1N}. Without registration and captcha. It's secure and private.",
+    "metaKeywords": "{1N} word counter, {1N} character count, {1N} word calculator,{1N} character counter online",
+    "howtoTitle": "How to count words in {1N}",
+    "howItWorksItems": [
+      {
+        "title": "Enter Aspose.PDF Free Application website",
+        "description": "Open your browser in a PDF free application web site and go to Word Counter tool app."
+      },
+      {
+        "title": "Upload files",
+        "description": "Click inside the file drop area to upload {1N} files or drag & drop {1N} files. You can upload a maximum of 10 files for the operation."
+      },
+      {
+        "title": "Enter text",
+        "description": "Click inside input region to enter texts instead of upload files. You can copy paste a large amount of text to calculate its statistics."
+      },
+      {
+        "title": "Perform counting",
+        "description": "Click on <strong>COUNT</strong> button. Your {1N} files or text will be uploaded and processed."
+      },
+      {
+        "title": "Get the results",
+        "description": "After processing of words and characters calculation results will be shown in downloads page"
+      },
+      {
+        "title": "eMail option",
+        "description": "You can also send mail with calculation results to your email address."
+      }
+    ],
+    "faqTitle": "FAQ",
+    "faqItems": [
+      {
+        "q": "❓ How can I count words and characters in {1N} document?",
+        "a": "First, you need to add a file for count: drag & drop your {1N} file or click inside the white area for choose a file. Then click the 'Count' button. When the calculation for {1N} document is completed, you can see the results."
+      },
+      {
+        "q": "❓ How can I count words and characters in entered text?",
+        "a": "First, you need to enter text or copy it for count: type text in input area. Then click the 'Count' button. When calculation for {1N} document is completed, you can see results."
+      },
+      {
+        "q": "⏱️ How long does it take to count words and characters {1N}?",
+        "a": "This Word Counter works fast. You can perform the calculation for {1N} in a few seconds."
+      },
+      {
+        "q": "🛡️ Is it safe to count words from {1N} using free Word Counter app?",
+        "a": "Of course! The download link of result files will be available instantly after counting. We delete uploaded files after 24 hours and the download links will stop working after this time period. No one has access to your files. Word Counter is absolutely safe."
+      },
+      {
+        "q": "💻 Can I count words and characters for {1N} on Mac OS, Android or Linux?",
+        "a": "Yes, you can use free Word Counter on any operating system that has a web browser. Our {1N} Word Counter works online and does not require any software installation."
+      }
+    ],
+    "featuresItems": [
+      {
+        "title": "Fast and Easy Word Counter",
+        "description": "Upload your document and click on the \"COUNT\" button. You will get a calculation results with single pages as soon as the calculation is performed."
+      },
+      {
+        "title": "Word Counter from anywhere",
+        "description": "It works from all platforms including Windows, Mac, Android and iOS. Count words and characters for all {1N} files, pages or for entered text. Count words in {1N} files online, easily and free."
+      },
+      {
+        "title": "Word Counter Quality",
+        "description": "All files are processed using Aspose APIs, which are being used by many Fortune 100 companies across 114 countries."
+      }
+    ]
+  }
+}
