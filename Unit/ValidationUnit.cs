@@ -35,7 +35,7 @@ namespace rules_of_seo.Service
             {
                 pages.Add(
                     new PageFile(textFile)
-                    { 
+                    {
                         Chunks = _pageService.Read(textFile) 
                     });
             }
