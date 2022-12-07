@@ -7,7 +7,7 @@ using rules_of_seo.Config;
 using rules_of_seo.Service;
 using rules_of_seo.Service.Inerface;
 using rules_of_seo.Validation;
-using rules_of_seo.Validation.Interface;
+using rules_of_seo.Validation.Interfaces;
 using YamlDotNet.Serialization;
 using YamlDotNet.Serialization.NamingConventions;
 
@@ -34,6 +34,8 @@ namespace rules_of_seo
             services.AddSingleton<ISlugService, SlugService>();
             services.AddSingleton<IValidationUnit, ValidationUnit>();
             services.AddSingleton<IValidator, Validator>();
+
+            //Services DI
             
             services.AddSingleton((f) => BuildSettings());
             

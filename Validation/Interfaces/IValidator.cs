@@ -2,7 +2,7 @@
 using rules_of_seo.Config;
 using rules_of_seo.Model;
 
-namespace rules_of_seo.Validation.Interface
+namespace rules_of_seo.Validation.Interfaces
 {
     public interface IValidator
     {
