@@ -8,6 +8,8 @@ using rules_of_seo.Service;
 using rules_of_seo.Service.Inerface;
 using rules_of_seo.Validation;
 using rules_of_seo.Validation.Interfaces;
+using rules_of_seo.Validation.Rules;
+using rules_of_seo.Validation.Rules.Interface;
 using YamlDotNet.Serialization;
 using YamlDotNet.Serialization.NamingConventions;
 
@@ -35,7 +37,23 @@ namespace rules_of_seo
             services.AddSingleton<IValidationUnit, ValidationUnit>();
             services.AddSingleton<IValidator, Validator>();
 
-            //Services DI
+            services.AddSingleton<IAllowAdditionParagraphValidator,AllowAdditionParagraphValidator>();
+            services.AddSingleton<ICheckPlagiatValidator,CheckPlagiatValidator>();
+            services.AddSingleton<ICompetitorsMixValidator,CompetitorsMixValidator>();
+            services.AddSingleton<IEndKeywordValidator,EndKeywordValidator>();
+            services.AddSingleton<IFirstIncludeOthersValidator,FirstIncludeOthersValidator>();
+            services.AddSingleton<IIsKeywordValidator,IsKeywordValidator>();
+            services.AddSingleton<IIsUrlValidator,IsUrlValidator>();
+            services.AddSingleton<IMaxCompetitorLengthValidator,MaxCompetitorLengthValidator>();
+            services.AddSingleton<IMaxKeywordsValidator,MaxKeywordsValidator>();
+            services.AddSingleton<IMaxLengthValidator,MaxLengthValidator>();
+            services.AddSingleton<IMiddleKeywordValidator,MiddleKeywordValidator>();
+            services.AddSingleton<IMinKeywordsValidator,MinKeywordsValidator>();
+            services.AddSingleton<IMinLengthValidator,MinLengthValidator>();
+            services.AddSingleton<IRefValidator,RefValidator>();
+            services.AddSingleton<IStartKeywordValidator,StartKeywordValidator>();
+            services.AddSingleton<IUniqueValidator,UniqueValidator>();
+
             
             services.AddSingleton((f) => BuildSettings());
             
