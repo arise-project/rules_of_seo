@@ -14,6 +14,11 @@ namespace rules_of_seo.Validation.Rules
 
         public RuleMessage Validate(PageChunk c, Rule r)
         {
+            if(r.IsKeyword != true)
+            {
+                return null;
+            }
+
             return null;
         }
     }

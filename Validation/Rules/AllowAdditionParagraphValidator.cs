@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using rules_of_seo.Config;
 using rules_of_seo.Model;
 using rules_of_seo.Validation.Rules.Interface;
@@ -8,33 +7,44 @@ namespace rules_of_seo.Validation.Rules
     public class AllowAdditionParagraphValidator : IAllowAdditionParagraphValidator
     {
         public const string ParagraphTagBeg = "<p>";
-        public const string ParagraphTagBeg = "</p>";
+        public const string ParagraphTagEnd = "</p>";
 
         public RuleMessage Validate(PageChunk c, Rule r)
         {
-            int bc = 0, ec = 0, b, e;
+            if(r.AllowAdditionParagraph != true)
+            {
+                return null;
+            }
+
+            int bc = 0, ec = 0, b = 0, e = 0;
 
             do
             {
-
+                b = c.Value.IndexOf(ParagraphTagBeg, b, c.Value.Length - b, StringComparison.OrdinalIgnoreCase);
+                if(b != -1) bc++;
             }
             while(b!= -1);
 
             do
             {
-
+                e = c.Value.IndexOf(ParagraphTagBeg, e, c.Value.Length - e, StringComparison.OrdinalIgnoreCase);
+                if(e != -1) ec++;
             }
             while(b!= -1);
 
             if(bc!=ec)
             {
-                
+                return new RuleMessage
+                {
+                    MessageLevel = MessageLevel.Error,
+                    Message = $"Not enclosed paragraph tags found"
+                };
             }
 
-            return new RuleMessage 
-            { 
+            return new RuleMessage
+            {
                 MessageLevel = MessageLevel.Info,
-                
+                Message = $"found {bc} paragraphs"
             };
         }
     }
