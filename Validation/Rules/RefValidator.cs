@@ -7,11 +7,15 @@ namespace rules_of_seo.Validation.Rules
 {
     public class RefValidator : IRefValidator
     {
-        public RefValidator()
+        private readonly ISeoRepository _seoRepository;
+        public RefValidator(ISeoRepository seoRepository)
         {
-
+			_seoRepository = seoRepository;
         }
+        
+        public string Slug {get; } = "ref";
 
+		//?
         public RuleMessage Validate(PageChunk c, Rule r)
         {
             if(string.IsNullOrWhiteSpace(r.Ref))

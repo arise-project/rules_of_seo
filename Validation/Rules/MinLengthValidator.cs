@@ -7,11 +7,15 @@ namespace rules_of_seo.Validation.Rules
 {
     public class MinLengthValidator : IMinLengthValidator
     {
-        public MinLengthValidator()
+        private readonly ISeoRepository _seoRepository;
+        public MinLengthValidator(ISeoRepository seoRepository)
         {
-
+			_seoRepository = seoRepository;
         }
+        
+        public string Slug {get; } = "min-length";
 
+		// check min lengh
         public RuleMessage Validate(PageChunk c, Rule r)
         {
             if(!r.MinLength.HasValue)

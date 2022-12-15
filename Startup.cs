@@ -51,12 +51,15 @@ namespace rules_of_seo
             services.AddSingleton<IMinKeywordsValidator,MinKeywordsValidator>();
             services.AddSingleton<IMinLengthValidator,MinLengthValidator>();
             services.AddSingleton<IRefValidator,RefValidator>();
-            services.AddSingleton<IStartKeywordValidator,StartKeywordValidator>();
+            services.AddSingleton<IStartKeywordValidator,S1tartKeywordValidator>();
             services.AddSingleton<IUniqueValidator,UniqueValidator>();
 
+			services.AddSingleton<IKeywordService,KeywordService>();
+			services.AddSingleton<ICompetitorService,CompetitorService>();
+			services.AddSingleton<ICompetitorKeywordsService,CompetitorKeywordsService>();
+			services.AddSingleton<ISeoRepository,SeoRepository>();
             
-            services.AddSingleton((f) => BuildSettings());
-            
+            services.AddSingleton((f) => BuildSettings());           
             services.AddHostedService<Worker>();
         }
         

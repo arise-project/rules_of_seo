@@ -39,6 +39,11 @@ namespace rules_of_seo.Service
                         Chunks = _pageService.Read(textFile) 
                     });
             }
+            
+            foreach(var page in pages)
+            {
+            		
+            }
         }
     }
 }

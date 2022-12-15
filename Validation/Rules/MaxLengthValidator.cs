@@ -7,11 +7,15 @@ namespace rules_of_seo.Validation.Rules
 {
     public class MaxLengthValidator : IMaxLengthValidator
     {
-        public MaxLengthValidator()
+        private readonly ISeoRepository _seoRepository;
+        public MaxLengthValidator(ISeoRepository seoRepository)
         {
-
+			_seoRepository = seoRepository;
         }
+        
+        public string Slug {get; } = "max-length";
 
+		// check max length is not exid
         public RuleMessage Validate(PageChunk c, Rule r)
         {
             if(!r.MaxLength.HasValue)

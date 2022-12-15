@@ -25,7 +25,7 @@ namespace rules_of_seo.Service
                 .Build();
         }
         
-        public List<Competitor> Read()
+        public List<Competitor> Read(string app)
         {
             var file = Path.Combine(
                 _config.DataFolder,

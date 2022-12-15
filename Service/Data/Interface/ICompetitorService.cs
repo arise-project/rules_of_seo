@@ -5,6 +5,6 @@ namespace rules_of_seo.Service
 {
     public interface ICompetitorService
     {
-        List<Competitor> Read();
+        List<Competitor> Read(string app);
     }
 }

@@ -26,13 +26,11 @@ namespace rules_of_seo
             _validation = validation;
             _logger = logger;
             _settings = settings;
-            //_logger.LogInformation("settings: "+ JsonSerializer.Serialize(settings));
         }
 
         protected override async Task ExecuteAsync(
             CancellationToken stoppingToken)
         {
-            //_logger.LogInformation("App: Config:"+ JsonSerializer.Serialize(_config));
             await Task.Run(
                 () => _validation.Execute(), 
                 stoppingToken);

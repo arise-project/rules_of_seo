@@ -7,11 +7,15 @@ namespace rules_of_seo.Validation.Rules
 {
     public class IsKeywordValidator : IIsKeywordValidator
     {
-        public IsKeywordValidator()
+        private readonly ISeoRepository _seoRepository;
+        public IsKeywordValidator(ISeoRepository seoRepository)
         {
-
+			_seoRepository = seoRepository;
         }
+        
+        public string Slug {get; } = "is-keyword";
 
+		// check all text is keyword
         public RuleMessage Validate(PageChunk c, Rule r)
         {
             if(r.IsKeyword != true)

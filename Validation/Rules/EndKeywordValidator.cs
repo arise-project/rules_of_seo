@@ -7,11 +7,15 @@ namespace rules_of_seo.Validation.Rules
 {
     public class EndKeywordValidator : IEndKeywordValidator
     {
-        public EndKeywordValidator()
+        private readonly ISeoRepository _seoRepository;
+        public EndKeywordValidator(ISeoRepository seoRepository)
         {
-
+			_seoRepository = seoRepository;
         }
+        
+        public string Slug {get; } = "end-keyword";
 
+		// text ends with keyword
         public RuleMessage Validate(PageChunk c, Rule r)
         {
             if(r.EndKeyword != true)

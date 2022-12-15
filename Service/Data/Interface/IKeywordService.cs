@@ -5,6 +5,6 @@ namespace rules_of_seo.Service
 {
     public interface IKeywordService
     {
-        List<Keyword> Read();
+        List<Keyword> Read(string app);
     }
 }

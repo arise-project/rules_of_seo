@@ -47,9 +47,13 @@ namespace rules_of_seo.Config
         [YamlMember(Alias = "end-keyword", ApplyNamingConventions = false)]
         public bool? EndKeyword { get; set; }
 
+        [YamlMember(Alias = "ref", ApplyNamingConventions = false)]
         public string Ref { get; set; }
         
         [YamlMember(Alias = "middle-keyword", ApplyNamingConventions = false)]
         public bool? MiddleKeyword { get; set; }
+        
+        [YamlMember(Alias = "is-unique", ApplyNamingConventions = false)]
+        public bool? IsUnique { get; set; }
     }
 }

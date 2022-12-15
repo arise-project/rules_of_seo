@@ -7,11 +7,17 @@ namespace rules_of_seo.Validation.Rules
 {
     public class UniqueValidator : IUniqueValidator
     {
-        public UniqueValidator()
+        private readonly ISeoRepository _seoRepository;
+        
+        public UniqueValidator(ISeoRepository seoRepository)
         {
-
+			_seoRepository = seoRepository;
         }
+        
+        public string Slug {get; } = "is-unique";
 
+		// walidate within apps overview is texts complitly different by sentences 
+		// or long sequence algorithms
         public RuleMessage Validate(PageChunk c, Rule r)
         {
             if(r.Unique != true)

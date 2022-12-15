@@ -7,11 +7,15 @@ namespace rules_of_seo.Validation.Rules
 {
     public class IsUrlValidator : IIsUrlValidator
     {
-        public IsUrlValidator()
+        private readonly ISeoRepository _seoRepository;
+        public IsUrlValidator(ISeoRepository seoRepository)
         {
-
+			_seoRepository = seoRepository;
         }
+        
+        public string Slug {get; } = "is-url";
 
+		// is this required? because this for segmet keyword read
         public RuleMessage Validate(PageChunk c, Rule r)
         {
             if(r.IsUrl != true)

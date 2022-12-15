@@ -7,11 +7,15 @@ namespace rules_of_seo.Validation.Rules
 {
     public class FirstIncludeOthersValidator : IFirstIncludeOthersValidator
     {
-        public FirstIncludeOthersValidator()
+        private readonly ISeoRepository _seoRepository;
+        public FirstIncludeOthersValidator(ISeoRepository seoRepository)
         {
-
+			_seoRepository = seoRepository;
         }
-
+        
+        public string Slug {get; } = "first-include-others";
+        
+		// is this reqired, this old data format
         public RuleMessage Validate(PageChunk c, Rule r)
         {
             if(r.FirstIncludeOthers != true)

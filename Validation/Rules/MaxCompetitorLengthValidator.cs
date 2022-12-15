@@ -7,11 +7,15 @@ namespace rules_of_seo.Validation.Rules
 {
     public class MaxCompetitorLengthValidator : IMaxCompetitorLengthValidator
     {
-        public MaxCompetitorLengthValidator()
+        private readonly ISeoRepository _seoRepository;
+        public MaxCompetitorLengthValidator(ISeoRepository seoRepository)
         {
-
+			_seoRepository = seoRepository;
         }
+        
+        public string Slug {get; } = "max-competitor-length";
 
+		// win competitors by length
         public RuleMessage Validate(PageChunk c, Rule r)
         {
             if(r.MaxCompetitorLength != true)

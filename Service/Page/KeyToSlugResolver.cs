@@ -50,6 +50,8 @@ namespace rules_of_seo.Service
                         return "format-faq-title";
                     }
                 break;
+                case 3:
+                	break;
             }
 
             return null;

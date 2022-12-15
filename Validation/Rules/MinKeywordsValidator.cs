@@ -7,11 +7,15 @@ namespace rules_of_seo.Validation.Rules
 {
     public class MinKeywordsValidator : IMinKeywordsValidator
     {
-        public MinKeywordsValidator()
+        private readonly ISeoRepository _seoRepository;
+        public MinKeywordsValidator(ISeoRepository seoRepository)
         {
-
+			_seoRepository = seoRepository;
         }
+        
+        public string Slug {get; } = "min-keywords"; 
 
+		// ceck min count of keywords appeared
         public RuleMessage Validate(PageChunk c, Rule r)
         {
             if(!r.MinKeywords.HasValue)

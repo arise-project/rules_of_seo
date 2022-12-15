@@ -6,9 +6,18 @@ namespace rules_of_seo.Validation.Rules
 {
     public class AllowAdditionParagraphValidator : IAllowAdditionParagraphValidator
     {
+    	private readonly ISeoRepository _seoRepository;
+        public AllowAdditionParagraphValidator(ISeoRepository seoRepository)
+        {
+			_seoRepository = seoRepository;
+        }
+        
+        public string Slug {get; } = "allow-addition-paragraph"; 
+        
         public const string ParagraphTagBeg = "<p>";
         public const string ParagraphTagEnd = "</p>";
 
+		// check paragraphs valid in text or no paragraphs addtion paragraphs
         public RuleMessage Validate(PageChunk c, Rule r)
         {
             if(r.AllowAdditionParagraph != true)

@@ -7,11 +7,15 @@ namespace rules_of_seo.Validation.Rules
 {
     public class StartKeywordValidator : IStartKeywordValidator
     {
-        public StartKeywordValidator()
+        private readonly ISeoRepository _seoRepository;
+        public StartKeywordValidator(ISeoRepository seoRepository)
         {
-
+			_seoRepository = seoRepository;
         }
+        
+        public string Slug {get; } = "start-keyword";
 
+		// check is text starts with any keyword
         public RuleMessage Validate(PageChunk c, Rule r)
         {
             if(r.StartKeyword != true)

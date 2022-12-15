@@ -24,7 +24,7 @@ namespace rules_of_seo.Service
                 .Build();
         }
         
-        public List<string> Read()
+        public List<string> Read(string app)
         {
             var file = Path.Combine(
                 _config.DataFolder, 
