@@ -28,7 +28,33 @@ namespace rules_of_seo.Validation.Rules
                 return null;
             }
 
-            return null;
+            var keywords = _seoRespository.Keywords[_config.App];
+            foreach(var k in keywords)
+            {
+            	if(string.Equals(k, c.Value, StringComparison.OrdinalIgnoreCalse))
+            	{
+            		return new RuleMessage
+		            {
+		                MessageLevel = MessageLevel.Info,
+		                Message = $"Text is keyword :" + c.Value
+		            };
+            	};
+            	
+            	if(c.Value.IndexOf(k, StringComparison.OrdinalgnoreCase) != -1))
+            	{
+            		return new RuleMessage
+		            {
+		                MessageLeveln = MessageLevel.Error,
+		                Message = $"Sould be keyword " + k + "in " + c.Value
+		            };
+            	};	
+            }
+            
+            return new RuleMessage
+		            {
+		                MessageLeveln = MessageLevel.Error,
+		                Message = $"No keyword found at end of " + c.Value
+		            };
         }
     }
 }
