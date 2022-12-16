@@ -7,5 +7,9 @@
         public string DataFolder { get; set; }
         
         public string TextFolder { get; set; }
+        
+        public string App { get; set; }
+        
+        public string Language { get; set; }
     }
 }
