@@ -1,6 +1,3 @@
-keywords-file: keywords.csv
-competitor-keywords-file: competitor_keywords.txt
-competitor-file: competitors.txt
 rules:
     - slug: applications-app-title
       ref: app-title
@@ -86,3 +83,6 @@ rule-keys:
   - format-how-to-title
   - format-how-to-description-ru
   - format-how-to-description
+keywords-file: keywords.yaml
+competitor-keywords-file: competitor_keywords.yaml
+competitor-file: competitors.yaml

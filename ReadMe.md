@@ -21,3 +21,7 @@
 11. unnit test all walidator
 12. remove ubused validators
 13. add documnet
+14. sync rule-keys in yaml
+15. sync rules in yaml
+16. low high parser in keywords.yaml
+17. parse collection in competitors

@@ -12,16 +12,19 @@ namespace rules_of_seo.Service
         private readonly AppConfig _config;
         private readonly IRuleService _ruleService;
         private readonly IPageService _pageService;
+        private readonly IValidator _validator;
 
         public ValidationUnit(
             IOptions<AppConfig> config,
             IRuleService ruleService, 
-            IPageService pageService
+            IPageService pageService,
+            IValidator validator
             )
         {
             _config = config.Value;
             _ruleService = ruleService;
             _pageService = pageService;
+            _validator = validator;
         }
         
         public void Execute()
@@ -29,8 +32,8 @@ namespace rules_of_seo.Service
             var rules = _ruleService.GetRules(_config.SettingsFile);
             var pages = new List<PageFile>();
             foreach (var textFile in Directory.GetFiles(
-                _config.TextFolder, 
-                "*.json", 
+                Path.Combine(_config.TextFolder, _config.App), 
+                "*.json",
                 SearchOption.TopDirectoryOnly))
             {
                 pages.Add(
@@ -42,7 +45,19 @@ namespace rules_of_seo.Service
             
             foreach(var page in pages)
             {
-            		
+            	var messages = _validator.Validate(page.Chunks, rules);
+            	foreach(var m in message)
+            	{
+            		if(m == null)
+            		{
+            			Console.WriteLine("No iformation for page " + page.File);	
+            		}
+            		else
+            		{
+            			Console.WriteLine("Page " + page.File);
+            			Console.WriteLine(m.ToString());
+            		}
+            	}
             }
         }
     }

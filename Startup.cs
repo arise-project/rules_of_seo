@@ -65,17 +65,26 @@ namespace rules_of_seo
         
         private static Settings BuildSettings()
         {
-            string text = File.ReadAllText(@"RuleSettings.yml");
-            Console.WriteLine("----------------------------------");
-            Console.WriteLine("Rule Settings:");
-            Console.WriteLine(text);
-            Console.WriteLine("----------------------------------");
-            var deserializer = new DeserializerBuilder()
-                .WithNamingConvention(CamelCaseNamingConvention.Instance)
-                .Build();
-
-            var settings  = deserializer.Deserialize<Settings>(text);
-            return settings;
+        	try
+        	{
+        		string text = File.ReadAllText("./RuleSettings.yml");
+	            Console.WriteLine("----------------------------------");
+	            Console.WriteLine("Rule Settings:");
+	            Console.WriteLine(text);
+	            Console.WriteLine("----------------------------------");
+	            var deserializer = new DeserializerBuilder()
+	                .WithNamingConvention(CamelCaseNamingConvention.Instance)
+	                .Build();
+	
+	            var settings  = deserializer.Deserialize<Settings>(text);
+	            return settings;	
+        	}
+        	catch(Exception ex)
+        	{
+        		Console.WriteLine(ex.ToString());
+        	}
+        	
+            return null;
         }
     }
 }

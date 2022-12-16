@@ -15,7 +15,7 @@ namespace rules_of_seo.Validation.Rules
         
         public string Slug {get; } = "ref";
 
-		//?
+		//ref is the reference between parend and child slug
         public RuleMessage Validate(PageChunk c, Rule r)
         {
             if(string.IsNullOrWhiteSpace(r.Ref))

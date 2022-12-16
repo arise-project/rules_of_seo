@@ -32,7 +32,17 @@ namespace rules_of_seo
             CancellationToken stoppingToken)
         {
             await Task.Run(
-                () => _validation.Execute(), 
+                () => 
+                {
+                	try
+                	{
+                		_validation.Execute();	
+                	}
+                	catch(Exception ex)
+                	{
+                		_logger.LogError(ex, ex.Message);
+                	}
+                }, 
                 stoppingToken);
         }
     }
