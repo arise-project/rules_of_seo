@@ -13,7 +13,7 @@ namespace rules_of_seo.Validation.Rules
 			_seoRepository = seoRepository;
         }
         
-        public string Slug {get; } = "check-plagiat";
+        public string Slug { get; } = "check-plagiat";
 
 		// is this possible to check?
         public RuleMessage Validate(PageChunk c, Rule r)

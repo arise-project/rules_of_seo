@@ -13,7 +13,7 @@ namespace rules_of_seo.Validation.Rules
 			_seoRepository = seoRepository;
         }
         
-        public string Slug {get; } = "min-keywords"; 
+        public string Slug { get; } = "min-keywords"; 
 
 		// ceck min count of keywords appeared
         public RuleMessage Validate(PageChunk c, Rule r)

@@ -8,11 +8,14 @@ rules:
       is-url: true
     - slug: app-title
       is-keyword: true
+      allow-addition-paragraph: flase
     - slug: app-block-title
       is-keyword: true
+      allow-addition-paragraph: false
     - slug: app-about-title
       is-keyword: true
       end-keyword: true
+      allow-addition-paragraph: false
     - slug: app-sub-title
       min-keywords: 1
       max-keywords: 1
@@ -25,39 +28,47 @@ rules:
       max-keywords: 3
       max-length: 150
       max-competitor-length: true
+      allow-addition-paragraph: false
       unique: true
       competitors-mix: true
       first-include-others: true
     - slug: app-format-title
       is-keyword: true
       start-keyword: true
+      allow-addition-paragraph: false
     - slug: app-format-description
       ref: format-sub-title
+      allow-addition-paragraph: false
     - slug: format-segment
       is-keyword: true
       is-url: true
     - slug: format-title
       is-keyword: true
+      allow-addition-paragraph: false
     - slug: format-sub-title
       min-keywords: 1
       max-keywords: 1
       start-keyword: true
       min-length: 50
       max-length: 90
+      allow-addition-paragraph: false
     - slug: format-about-title
       is-keyword: true
       end-keyword: true
+      allow-addition-paragraph: false
     - slug: format-about-description
       min-keywords: 1
       max-keywords: 5
       min-length: 1500
       max-length: 3000
+      allow-addition-paragraph: false
       max-competitor-length: true
       unique: true
       check-plagiat: true
     - slug: format-how-to-title
       is-keyword: true
       end-keyword: true
+      allow-addition-paragraph: false
 rule-keys:
   - app-segment
   - app-title

@@ -13,7 +13,7 @@ namespace rules_of_seo.Validation.Rules
 			_seoRepository = seoRepository;
         }
         
-        public string Slug {get; } = "ref";
+        public string Slug { get; } = "ref";
 
 		//ref is the reference between parend and child slug
         public RuleMessage Validate(PageChunk c, Rule r)

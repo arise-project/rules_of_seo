@@ -13,7 +13,7 @@ namespace rules_of_seo.Validation.Rules
 			_seoRepository = seoRepository;
         }
         
-        public string Slug {get; } = "competitors-mix";
+        public string Slug { get; } = "competitors-mix";
 	
 		// check is any sentences of competitors exists. Better to copy more from competitors.
         public RuleMessage Validate(PageChunk c, Rule r)

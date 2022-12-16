@@ -13,7 +13,7 @@ namespace rules_of_seo.Validation.Rules
 			_seoRepository = seoRepository;
         }
         
-        public string Slug {get; } = "first-include-others";
+        public string Slug { get; } = "first-include-others";
         
 		// is this reqired, this old data format
         public RuleMessage Validate(PageChunk c, Rule r)

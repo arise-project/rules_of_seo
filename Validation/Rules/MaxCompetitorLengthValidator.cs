@@ -13,7 +13,7 @@ namespace rules_of_seo.Validation.Rules
 			_seoRepository = seoRepository;
         }
         
-        public string Slug {get; } = "max-competitor-length";
+        public string Slug { get; } = "max-competitor-length";
 
 		// win competitors by length
         public RuleMessage Validate(PageChunk c, Rule r)

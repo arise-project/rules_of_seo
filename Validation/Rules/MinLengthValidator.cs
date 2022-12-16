@@ -13,7 +13,7 @@ namespace rules_of_seo.Validation.Rules
 			_seoRepository = seoRepository;
         }
         
-        public string Slug {get; } = "min-length";
+        public string Slug { get; } = "min-length";
 
 		// check min lengh
         public RuleMessage Validate(PageChunk c, Rule r)

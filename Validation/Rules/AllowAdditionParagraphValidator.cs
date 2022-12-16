@@ -12,7 +12,7 @@ namespace rules_of_seo.Validation.Rules
 			_seoRepository = seoRepository;
         }
         
-        public string Slug {get; } = "allow-addition-paragraph"; 
+        public string Slug { get; } = "allow-addition-paragraph"; 
         
         public const string ParagraphTagBeg = "<p>";
         public const string ParagraphTagEnd = "</p>";
@@ -20,9 +20,15 @@ namespace rules_of_seo.Validation.Rules
 		// check paragraphs valid in text or no paragraphs addtion paragraphs
         public RuleMessage Validate(PageChunk c, Rule r)
         {
-            if(r.AllowAdditionParagraph != true)
+        	if(!r.AllowAdditionParagraph.HasValue)
             {
                 return null;
+            }
+            
+        	bool allowAdditionParagraph = true;
+            if(r.AllowAdditionParagraph != true)
+            {
+                allowAdditionParagraph = false;
             }
 
             int bc = 0, ec = 0, b = 0, e = 0;
@@ -50,11 +56,18 @@ namespace rules_of_seo.Validation.Rules
                 };
             }
 
-            return new RuleMessage
-            {
-                MessageLevel = MessageLevel.Info,
-                Message = $"found {bc} paragraphs"
-            };
+			if(allowAdditionParagraph)
+	            return new RuleMessage
+	            {
+	                MessageLevel = MessageLevel.Info,
+	                Message = $"found {bc} paragraphs"
+	            };
+	  		else if(bc > 1)
+	  			return new RuleMessage
+	            {
+	                MessageLevel = MessageLevel.Eorror,
+	                Message = $"found additomal paragraphs {bc} paragraphs"
+	            };
         }
     }
 }

@@ -14,7 +14,7 @@ namespace rules_of_seo.Validation.Rules
 			_seoRepository = seoRepository;
         }
         
-        public string Slug {get; } = "is-unique";
+        public string Slug { get; } = "is-unique";
 
 		// walidate within apps overview is texts complitly different by sentences 
 		// or long sequence algorithms

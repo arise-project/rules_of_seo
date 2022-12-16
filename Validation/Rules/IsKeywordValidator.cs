@@ -13,7 +13,7 @@ namespace rules_of_seo.Validation.Rules
 			_seoRepository = seoRepository;
         }
         
-        public string Slug {get; } = "is-keyword";
+        public string Slug { get; } = "is-keyword";
 
 		// check all text is keyword
         public RuleMessage Validate(PageChunk c, Rule r)
