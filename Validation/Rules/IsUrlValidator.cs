@@ -8,6 +8,7 @@ namespace rules_of_seo.Validation.Rules
     public class IsUrlValidator : IIsUrlValidator
     {
         private readonly ISeoRepository _seoRepository;
+        
         public IsUrlValidator(ISeoRepository seoRepository)
         {
 			_seoRepository = seoRepository;

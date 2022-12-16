@@ -7,9 +7,14 @@ namespace rules_of_seo.Validation.Rules
 {
     public class IsKeywordValidator : IIsKeywordValidator
     {
+    	private readonly AppConfig _config;
         private readonly ISeoRepository _seoRepository;
-        public IsKeywordValidator(ISeoRepository seoRepository)
+        
+        public IsKeywordValidator(
+        	ISeoRepository seoRepository,
+        	IOptions<AppConfig> config)
         {
+        	_config = config.Value;
 			_seoRepository = seoRepository;
         }
         

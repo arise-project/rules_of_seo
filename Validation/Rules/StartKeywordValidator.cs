@@ -7,9 +7,14 @@ namespace rules_of_seo.Validation.Rules
 {
     public class StartKeywordValidator : IStartKeywordValidator
     {
+		private readonly AppConfig _config;
         private readonly ISeoRepository _seoRepository;
-        public StartKeywordValidator(ISeoRepository seoRepository)
+        
+        public StartKeywordValidator(
+        	ISeoRepository seoRepository,
+        	IOptions<AppConfig> config)
         {
+        	_config = config.Value;
 			_seoRepository = seoRepository;
         }
         

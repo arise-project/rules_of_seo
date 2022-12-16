@@ -8,6 +8,7 @@ namespace rules_of_seo.Validation.Rules
     public class MinLengthValidator : IMinLengthValidator
     {
         private readonly ISeoRepository _seoRepository;
+        
         public MinLengthValidator(ISeoRepository seoRepository)
         {
 			_seoRepository = seoRepository;

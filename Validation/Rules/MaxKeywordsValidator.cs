@@ -7,9 +7,14 @@ namespace rules_of_seo.Validation.Rules
 {
     public class MaxKeywordsValidator : IMaxKeywordsValidator
     {
+    	private readonly AppConfig _config;
         private readonly ISeoRepository _seoRepository;
-        public MaxKeywordsValidator(ISeoRepository seoRepository)
+        
+        public MaxKeywordsValidator(
+        	ISeoRepository seoRepository,
+        	IOptions<AppConfig> config)
         {
+        	_config = config.Value;
 			_seoRepository = seoRepository;
         }
         

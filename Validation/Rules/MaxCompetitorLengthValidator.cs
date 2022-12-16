@@ -7,9 +7,14 @@ namespace rules_of_seo.Validation.Rules
 {
     public class MaxCompetitorLengthValidator : IMaxCompetitorLengthValidator
     {
+		private readonly AppConfig _config;    	
         private readonly ISeoRepository _seoRepository;
-        public MaxCompetitorLengthValidator(ISeoRepository seoRepository)
+        
+        public MaxCompetitorLengthValidator(
+        	ISeoRepository seoRepository,
+        	IOptions<AppConfig> config)
         {
+        	_config = config.Value;
 			_seoRepository = seoRepository;
         }
         

@@ -7,9 +7,14 @@ namespace rules_of_seo.Validation.Rules
 {
     public class CompetitorsMixValidator : ICompetitorsMixValidator
     {
+   		private readonly AppConfig _config;
         private readonly ISeoRepository _seoRepository;
-        public CompetitorsMixValidator(ISeoRepository seoRepository)
+        
+        public CompetitorsMixValidator(
+        	ISeoRepository seoRepository,
+        	IOptions<AppConfig> config)
         {
+        	_config = config.Value;
 			_seoRepository = seoRepository;
         }
         

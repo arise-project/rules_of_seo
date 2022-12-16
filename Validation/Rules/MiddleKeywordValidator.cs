@@ -7,9 +7,14 @@ namespace rules_of_seo.Validation.Rules
 {
     public class MiddleKeywordValidator : IMiddleKeywordValidator
     {
+    	private readonly AppConfig _config;
         private readonly ISeoRepository _seoRepository;
-        public MiddleKeywordValidator(ISeoRepository seoRepository)
+        
+        public MiddleKeywordValidator(
+        	ISeoRepository seoRepository,
+        	IOptions<AppConfig> config)
         {
+        	_config = config.Value;
 			_seoRepository = seoRepository;
         }
         

@@ -8,6 +8,7 @@ namespace rules_of_seo.Validation.Rules
     public class FirstIncludeOthersValidator : IFirstIncludeOthersValidator
     {
         private readonly ISeoRepository _seoRepository;
+        
         public FirstIncludeOthersValidator(ISeoRepository seoRepository)
         {
 			_seoRepository = seoRepository;

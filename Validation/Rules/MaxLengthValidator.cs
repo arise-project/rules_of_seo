@@ -8,6 +8,7 @@ namespace rules_of_seo.Validation.Rules
     public class MaxLengthValidator : IMaxLengthValidator
     {
         private readonly ISeoRepository _seoRepository;
+        
         public MaxLengthValidator(ISeoRepository seoRepository)
         {
 			_seoRepository = seoRepository;

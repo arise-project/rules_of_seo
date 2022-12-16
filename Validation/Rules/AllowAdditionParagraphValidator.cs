@@ -7,6 +7,7 @@ namespace rules_of_seo.Validation.Rules
     public class AllowAdditionParagraphValidator : IAllowAdditionParagraphValidator
     {
     	private readonly ISeoRepository _seoRepository;
+    	
         public AllowAdditionParagraphValidator(ISeoRepository seoRepository)
         {
 			_seoRepository = seoRepository;

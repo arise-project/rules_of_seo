@@ -8,6 +8,7 @@ namespace rules_of_seo.Validation.Rules
     public class RefValidator : IRefValidator
     {
         private readonly ISeoRepository _seoRepository;
+        
         public RefValidator(ISeoRepository seoRepository)
         {
 			_seoRepository = seoRepository;

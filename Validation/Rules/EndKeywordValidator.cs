@@ -8,8 +8,14 @@ namespace rules_of_seo.Validation.Rules
     public class EndKeywordValidator : IEndKeywordValidator
     {
         private readonly ISeoRepository _seoRepository;
-        public EndKeywordValidator(ISeoRepository seoRepository)
+        private readonly AppConfig _config;
+        
+        public EndKeywordValidator(
+        	ISeoRepository seoRepository,
+        	IOptions<AppConfig> config
+        )
         {
+        	_config = config.Value;
 			_seoRepository = seoRepository;
         }
         
