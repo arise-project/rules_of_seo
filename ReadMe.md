@@ -4,7 +4,7 @@
 
 1. setup all services in di
 +2. IValidationUnit how to run?
-3. appSettings.json
++3. appSettings.json
 	"SettingsFile": "./RuleSettings.yml",
     "DataFolder": "./Example/WordCounter/Data/",
     "TextFolder": "./Example/WordCounter/"	
@@ -25,3 +25,5 @@
 15. sync rules in yaml
 16. low high parser in keywords.yaml
 17. parse collection in competitors
+18. Found all enpty chunks with slugs
+18. List all not found slugs

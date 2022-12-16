@@ -12,8 +12,7 @@ namespace rules_of_seo.Validation.Rules
         
         public EndKeywordValidator(
         	ISeoRepository seoRepository,
-        	IOptions<AppConfig> config
-        )
+        	IOptions<AppConfig> config)
         {
         	_config = config.Value;
 			_seoRepository = seoRepository;
@@ -28,8 +27,34 @@ namespace rules_of_seo.Validation.Rules
             {
                 return null;
             }
-
-            return null;
+            
+            var keywords = _seoRespository.Keywords[_config.App];
+            foreach(var k in keywords)
+            {
+            	if(string.Equals(k, c.Value, StringComparison.OrdinalIgnoreCalse))
+            	{
+            		return new RuleMessage
+		            {
+		                MessageLevel = MessageLevel.Warning,
+		                Message = $"Should be text before keyword " + k + "in " + c.Value
+		            };
+            	};
+            	
+            	if(c.Value.EndWith(k)))
+            	{
+            		return new RuleMessage
+		            {
+		                MessageLeveln = MessageLevel.Info,
+		                Message = $"Foung text before keyword " + k + "in " + c.Value
+		            };
+            	};	
+            }
+            
+            return new RuleMessage
+		            {
+		                MessageLeveln = MessageLevel.Error,
+		                Message = $"No keyword found at end of " + c.Value
+		            };
         }
     }
 }
