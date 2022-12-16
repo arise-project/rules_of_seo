@@ -27,8 +27,32 @@ namespace rules_of_seo.Validation.Rules
             {
                 return null;
             }
-
-            return null;
+            
+            var competitors =  _seoRepository.Competitors[_config.App];
+            
+            int m = 0;
+            foreach(var comp in competitors)
+            {
+            	if(m < comp.Description?.Length)
+            	{
+            		m = comp.Description?.Length;
+            	}
+            }
+            
+            if(m > c.Value.Length)
+            {
+            	new RuleMessage
+		            {
+		                MessageLeveln = MessageLevel.Error,
+		                Message = $"Found competitor with larger text when " + c.Value
+		            };
+            }
+            
+            return new RuleMessage
+		            {
+		                MessageLeveln = MessageLevel.Info,
+		                Message = $"Win competitors by length " + c.Slug
+		            };
         }
     }
 }

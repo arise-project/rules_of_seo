@@ -23,6 +23,7 @@ namespace rules_of_seo.Validation.Rules
             {
                 return null;
             }
+            
 
             return null;
         }
