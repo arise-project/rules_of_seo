@@ -30,13 +30,20 @@ namespace rules_of_seo
         public static void Services(IServiceCollection services)
         {
             services.Configure<AppConfig>(configuration.GetSection("App"));
-            services.AddSingleton<IPageService, PageService>();
-            services.AddSingleton<IRuleService, RuleService>();
-            services.AddSingleton<IRuleValidatorService, RuleValidatorService>();
-            services.AddSingleton<ISlugService, SlugService>();
-            services.AddSingleton<IValidationUnit, ValidationUnit>();
-            services.AddSingleton<IValidator, Validator>();
 
+            //config services
+            services.AddSingleton<IRuleService, RuleService>();
+            services.AddSingleton<ISlugService, SlugService>();
+            services.AddSingleton((f) => BuildSettings());
+
+            //data services
+            services.AddSingleton<IPageService, PageService>();
+            services.AddSingleton<IKeywordService,KeywordService>();
+			services.AddSingleton<ICompetitorService,CompetitorService>();
+			services.AddSingleton<ICompetitorKeywordsService,CompetitorKeywordsService>();
+			services.AddSingleton<ISeoRepository,SeoRepository>();
+
+            //rule validation
             services.AddSingleton<IAllowAdditionParagraphValidator,AllowAdditionParagraphValidator>();
             services.AddSingleton<ICheckPlagiatValidator,CheckPlagiatValidator>();
             services.AddSingleton<ICompetitorsMixValidator,CompetitorsMixValidator>();
@@ -54,12 +61,10 @@ namespace rules_of_seo
             services.AddSingleton<IStartKeywordValidator,S1tartKeywordValidator>();
             services.AddSingleton<IUniqueValidator,UniqueValidator>();
 
-			services.AddSingleton<IKeywordService,KeywordService>();
-			services.AddSingleton<ICompetitorService,CompetitorService>();
-			services.AddSingleton<ICompetitorKeywordsService,CompetitorKeywordsService>();
-			services.AddSingleton<ISeoRepository,SeoRepository>();
-            
-            services.AddSingleton((f) => BuildSettings());           
+            //engine services
+            services.AddSingleton<IValidationUnit, ValidationUnit>();
+            services.AddSingleton<IValidator, Validator>();
+            services.AddSingleton<IRuleValidatorService, RuleValidatorService>();
             services.AddHostedService<Worker>();
         }
         
