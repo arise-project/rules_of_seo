@@ -1,45 +1,42 @@
 using rules_of_seo.Config;
 using rules_of_seo.Model;
 using rules_of_seo.Validation.Rules.Interface;
-using rules_of_seo.Service.Interface;
 using rules_of_seo.Service.Interfaces;
-using System;
-using Microsoft.Extensions.Logging;
 
 namespace rules_of_seo.Validation.Rules
 {
     public class AllowAdditionParagraphValidator : IAllowAdditionParagraphValidator
     {
-    	private readonly ISeoRepository _seoRepository;
+        private readonly ISeoRepository _seoRepository;
         private readonly ILogger<AllowAdditionParagraphValidator> logger;
 
         public AllowAdditionParagraphValidator(ISeoRepository seoRepository, ILogger<AllowAdditionParagraphValidator> logger)
         {
-			_seoRepository = seoRepository;
+            _seoRepository = seoRepository;
             this.logger = logger;
         }
-        
-        public string Slug { get; } = "allow-addition-paragraph"; 
-        
+
+        public string Slug { get; } = "allow-addition-paragraph";
+
         public const string ParagraphTagBeg = "<p>";
         public const string ParagraphTagEnd = "</p>";
 
-		// check paragraphs valid in text or no paragraphs addtion paragraphs
+        // check paragraphs valid in text or no paragraphs addtion paragraphs
         public RuleMessage? Validate(PageChunk c, Rule r)
         {
-        	if(!r.AllowAdditionParagraph.HasValue)
+            if (!r.AllowAdditionParagraph.HasValue)
             {
                 return null;
             }
 
-            if(string.IsNullOrWhiteSpace(c.Value))
+            if (string.IsNullOrWhiteSpace(c.Value))
             {
                 logger.LogError("Chunk is empty");
                 return null;
             }
-            
-        	bool allowAdditionParagraph = true;
-            if(r.AllowAdditionParagraph != true)
+
+            bool allowAdditionParagraph = true;
+            if (r.AllowAdditionParagraph != true)
             {
                 allowAdditionParagraph = false;
             }
@@ -49,18 +46,18 @@ namespace rules_of_seo.Validation.Rules
             do
             {
                 b = c.Value.IndexOf(ParagraphTagBeg, b, c.Value.Length - b, StringComparison.OrdinalIgnoreCase);
-                if(b != -1) bc++;
+                if (b != -1) bc++;
             }
-            while(b!= -1);
+            while (b != -1);
 
             do
             {
                 e = c.Value.IndexOf(ParagraphTagBeg, e, c.Value.Length - e, StringComparison.OrdinalIgnoreCase);
-                if(e != -1) ec++;
+                if (e != -1) ec++;
             }
-            while(b!= -1);
+            while (b != -1);
 
-            if(bc!=ec)
+            if (bc != ec)
             {
                 return new RuleMessage
                 {
@@ -69,18 +66,22 @@ namespace rules_of_seo.Validation.Rules
                 };
             }
 
-			if(allowAdditionParagraph)
-	            return new RuleMessage
-	            {
-	                MessageLevel = MessageLevel.Info,
-	                Message = $"found {bc} paragraphs"
-	            };
-	  		else if(bc > 1)
-	  			return new RuleMessage
-	            {
-	                MessageLevel = MessageLevel.Error,
-	                Message = $"found additomal paragraphs {bc} paragraphs"
-	            };
+            if (allowAdditionParagraph)
+            {
+                return new RuleMessage
+                {
+                    MessageLevel = MessageLevel.Info,
+                    Message = $"found {bc} paragraphs"
+                };
+            }
+            else if (bc > 1)
+            {
+                return new RuleMessage
+                {
+                    MessageLevel = MessageLevel.Error,
+                    Message = $"found additomal paragraphs {bc} paragraphs"
+                };
+            }
 
             return null;
         }

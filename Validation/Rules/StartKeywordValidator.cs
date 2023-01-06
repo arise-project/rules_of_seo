@@ -1,37 +1,33 @@
-using System.Collections.Generic;
 using rules_of_seo.Config;
 using rules_of_seo.Model;
 using rules_of_seo.Validation.Rules.Interface;
-using Microsoft.Extensions.Configuration;
 using rules_of_seo.Service.Interfaces;
 using Microsoft.Extensions.Options;
-using System;
-using Microsoft.Extensions.Logging;
 
 namespace rules_of_seo.Validation.Rules
 {
     public class StartKeywordValidator : IStartKeywordValidator
     {
-		private readonly AppConfig _config;
+        private readonly AppConfig _config;
         private readonly ISeoRepository _seoRepository;
         private readonly ILogger<StartKeywordValidator> logger;
 
         public StartKeywordValidator(
-        	ISeoRepository seoRepository,
-        	IOptions<AppConfig> config,
+            ISeoRepository seoRepository,
+            IOptions<AppConfig> config,
             ILogger<StartKeywordValidator> logger)
         {
-        	_config = config.Value;
-			_seoRepository = seoRepository;
+            _config = config.Value;
+            _seoRepository = seoRepository;
             this.logger = logger;
         }
-        
+
         public string Slug { get; } = "start-keyword";
 
-		// check is text starts with any keyword
+        // check is text starts with any keyword
         public RuleMessage? Validate(PageChunk c, Rule r)
         {
-            if(r.StartKeyword != true)
+            if (r.StartKeyword != true)
             {
                 return null;
             }
@@ -52,7 +48,7 @@ namespace rules_of_seo.Validation.Rules
             }
 
             var keywords = _seoRepository.Keywords[_config.App];
-            foreach(var k in keywords)
+            foreach (var k in keywords)
             {
                 if (k == null)
                 {
@@ -67,29 +63,29 @@ namespace rules_of_seo.Validation.Rules
                 }
 
                 if (string.Equals(k.Key, c.Value, StringComparison.OrdinalIgnoreCase))
-            	{
-            		return new RuleMessage
-		            {
-		                MessageLevel = MessageLevel.Warning,
-		                Message = $"Should be text before keyword " + k + "in " + c.Value
-		            };
-            	};
-            	
-            	if(c.Value.StartsWith(k.Key))
-            	{
-            		return new RuleMessage
-		            {
-		                MessageLevel = MessageLevel.Info,
-		                Message = $"Foung text after keyword " + k + "in " + c.Value
-		            };
-            	};	
+                {
+                    return new RuleMessage
+                    {
+                        MessageLevel = MessageLevel.Warning,
+                        Message = "Should be text before keyword " + k + "in " + c.Value
+                    };
+                }
+
+                if (c.Value.StartsWith(k.Key))
+                {
+                    return new RuleMessage
+                    {
+                        MessageLevel = MessageLevel.Info,
+                        Message = "Foung text after keyword " + k + "in " + c.Value
+                    };
+                }
             }
-            
+
             return new RuleMessage
-		            {
-		                MessageLevel = MessageLevel.Error,
-		                Message = $"No keyword found at end of " + c.Value
-		            };
+            {
+                MessageLevel = MessageLevel.Error,
+                Message = "No keyword found at end of " + c.Value
+            };
         }
     }
 }

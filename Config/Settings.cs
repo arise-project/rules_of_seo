@@ -1,12 +1,11 @@
-﻿using System.Collections.Generic;
-using YamlDotNet.Serialization;
+﻿using YamlDotNet.Serialization;
 
 namespace rules_of_seo.Config
 {
     public class Settings
     {
         public List<Rule>? Rules { get; set; }
-        
+
         [YamlMember(Alias = "rule-keys", ApplyNamingConventions = false)]
         public List<string>? RuleKeys { get; set; }
 

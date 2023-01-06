@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using rules_of_seo.Config;
 using rules_of_seo.Model;
@@ -11,26 +8,26 @@ namespace rules_of_seo.Validation.Rules
 {
     public class MaxCompetitorLengthValidator : IMaxCompetitorLengthValidator
     {
-		private readonly AppConfig _config;    	
+        private readonly AppConfig _config;
         private readonly ISeoRepository _seoRepository;
         private readonly ILogger<MaxCompetitorLengthValidator> logger;
 
         public MaxCompetitorLengthValidator(
-        	ISeoRepository seoRepository,
-        	IOptions<AppConfig> config,
+            ISeoRepository seoRepository,
+            IOptions<AppConfig> config,
             ILogger<MaxCompetitorLengthValidator> logger)
         {
-        	_config = config.Value;
-			_seoRepository = seoRepository;
+            _config = config.Value;
+            _seoRepository = seoRepository;
             this.logger = logger;
         }
-        
+
         public string Slug { get; } = "max-competitor-length";
 
-		// win competitors by length
+        // win competitors by length
         public RuleMessage? Validate(PageChunk c, Rule r)
         {
-            if(r.MaxCompetitorLength != true)
+            if (r.MaxCompetitorLength != true)
             {
                 return null;
             }
@@ -50,10 +47,10 @@ namespace rules_of_seo.Validation.Rules
                 throw new Exception();
             }
 
-            var competitors =  _seoRepository.Competitors[_config.App];
-            
+            var competitors = _seoRepository.Competitors[_config.App];
+
             int m = 0;
-            foreach(var comp in competitors)
+            foreach (var comp in competitors)
             {
                 if (comp == null)
                 {
@@ -68,25 +65,25 @@ namespace rules_of_seo.Validation.Rules
                 }
 
                 if (string.IsNullOrWhiteSpace(comp.Description) && m < comp.Description.Length)
-            	{
-            		m = comp.Description.Length;
-            	}
+                {
+                    m = comp.Description.Length;
+                }
             }
-            
-            if(m > c.Value.Length)
+
+            if (m > c.Value.Length)
             {
-            	new RuleMessage
-		            {
-		                MessageLevel = MessageLevel.Error,
-		                Message = $"Found competitor with larger text when " + c.Value
-		            };
+                new RuleMessage
+                {
+                    MessageLevel = MessageLevel.Error,
+                    Message = $"Found competitor with larger text when " + c.Value
+                };
             }
-            
+
             return new RuleMessage
-		            {
-		                MessageLevel = MessageLevel.Info,
-		                Message = $"Win competitors by length " + c.Slug
-		            };
+            {
+                MessageLevel = MessageLevel.Info,
+                Message = $"Win competitors by length " + c.Slug
+            };
         }
     }
 }

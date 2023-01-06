@@ -1,9 +1,3 @@
-using System;
-using System.Text.Json;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using rules_of_seo.Config;
 using rules_of_seo.Service.Interface;
@@ -33,17 +27,17 @@ namespace rules_of_seo
             CancellationToken stoppingToken)
         {
             await Task.Run(
-                () => 
+                () =>
                 {
                 	try
                 	{
-                		_validation.Execute();	
+                		_validation.Execute();
                 	}
                 	catch(Exception ex)
                 	{
                 		_logger.LogError(ex, ex.Message);
                 	}
-                }, 
+                },
                 stoppingToken);
         }
     }

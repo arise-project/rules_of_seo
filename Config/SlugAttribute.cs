@@ -1,8 +1,6 @@
-﻿using System;
-
-namespace rules_of_seo.Config
+﻿namespace rules_of_seo.Config
 {
-    [AttributeUsage(System.AttributeTargets.Property)]
+    [AttributeUsage(AttributeTargets.Property)]
     public class SlugAttribute : Attribute
     {
         public string Slug { get; set; }

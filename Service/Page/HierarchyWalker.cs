@@ -1,9 +1,6 @@
-using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using rules_of_seo.Model;
 using rules_of_seo.Service.Interface;
-using System;
-using System.IO;
 
 namespace rules_of_seo.Service
 {
@@ -28,25 +25,24 @@ namespace rules_of_seo.Service
 
         public PageChunk? Read()
         {
-            if(Reader == null)
+            if (Reader == null)
             {
                 logger.LogError("Open file first");
                 return null;
             }
 
-            while(Reader.Read())
+            while (Reader.Read())
             {
-                if(Reader.TokenType == JsonToken.String)
+                if (Reader.TokenType == JsonToken.String)
                 {
-                    return new PageChunk 
-                    { 
+                    return new PageChunk
+                    {
                         Slug = slugResolver.Resolve(Reader.Path),
                         Value = Reader.Value?.ToString(),
                         Depth = Reader.Depth
                     };
                 }
             }
-            
 
             return null;
         }

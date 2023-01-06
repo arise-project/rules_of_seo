@@ -1,5 +1,3 @@
-using System;
-using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using rules_of_seo.Config;
 using rules_of_seo.Model;
@@ -10,31 +8,31 @@ namespace rules_of_seo.Validation.Rules
 {
     public class IsKeywordValidator : IIsKeywordValidator
     {
-    	private readonly AppConfig _config;
+        private readonly AppConfig _config;
         private readonly ISeoRepository _seoRepository;
         private readonly ILogger<IsKeywordValidator> logger;
 
         public IsKeywordValidator(
-        	ISeoRepository seoRepository,
-        	IOptions<AppConfig> config,
+            ISeoRepository seoRepository,
+            IOptions<AppConfig> config,
             ILogger<IsKeywordValidator> logger)
         {
-        	_config = config.Value;
-			_seoRepository = seoRepository;
+            _config = config.Value;
+            _seoRepository = seoRepository;
             this.logger = logger;
         }
-        
+
         public string Slug { get; } = "is-keyword";
 
-		// check all text is keyword
+        // check all text is keyword
         public RuleMessage? Validate(PageChunk c, Rule r)
         {
-            if(r.IsKeyword != true)
+            if (r.IsKeyword != true)
             {
                 return null;
             }
 
-            if(string.IsNullOrWhiteSpace(c.Value))
+            if (string.IsNullOrWhiteSpace(c.Value))
             {
                 return new RuleMessage
                 {
@@ -50,7 +48,7 @@ namespace rules_of_seo.Validation.Rules
             }
 
             var keywords = _seoRepository.Keywords[_config.App];
-            foreach(var k in keywords)
+            foreach (var k in keywords)
             {
                 if (k == null)
                 {
@@ -65,29 +63,29 @@ namespace rules_of_seo.Validation.Rules
                 }
 
                 if (string.Equals(k.Key, c.Value, StringComparison.OrdinalIgnoreCase))
-            	{
-            		return new RuleMessage
-		            {
-		                MessageLevel = MessageLevel.Info,
-		                Message = $"Text is keyword :" + c.Value
-		            };
-            	};
-            	
-            	if(c.Value.IndexOf(k.Key, StringComparison.OrdinalIgnoreCase) != -1)
-            	{
-            		return new RuleMessage
-		            {
-		                MessageLevel = MessageLevel.Error,
-		                Message = $"Sould be keyword " + k + "in " + c.Value
-		            };
-            	};	
+                {
+                    return new RuleMessage
+                    {
+                        MessageLevel = MessageLevel.Info,
+                        Message = "Text is keyword :" + c.Value
+                    };
+                }
+
+                if (c.Value.IndexOf(k.Key, StringComparison.OrdinalIgnoreCase) != -1)
+                {
+                    return new RuleMessage
+                    {
+                        MessageLevel = MessageLevel.Error,
+                        Message = "Sould be keyword " + k + "in " + c.Value
+                    };
+                }
             }
-            
+
             return new RuleMessage
-		            {
-		                MessageLevel = MessageLevel.Error,
-		                Message = $"No keyword found at end of " + c.Value
-		            };
+            {
+                MessageLevel = MessageLevel.Error,
+                Message = "No keyword found at end of " + c.Value
+            };
         }
     }
 }

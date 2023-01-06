@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
+﻿using Microsoft.Extensions.Options;
 using rules_of_seo.Config;
 using rules_of_seo.Model;
 using YamlDotNet.Serialization;
@@ -29,7 +25,7 @@ namespace rules_of_seo.Service
                 .WithNamingConvention(CamelCaseNamingConvention.Instance)
                 .Build();
         }
-        
+
         public List<Keyword> Read(string app)
         {
             if (string.IsNullOrWhiteSpace(_config.DataFolder))
@@ -47,7 +43,7 @@ namespace rules_of_seo.Service
             var file = Path.Combine(
                 _config.DataFolder,
                 _settings.KeywordsFile);
-            var text = System.IO.File.ReadAllText(file);
+            var text = File.ReadAllText(file);
             return _deserializer.Deserialize<List<Keyword>>(text);
         }
     }

@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using Microsoft.Extensions.Logging;
-using rules_of_seo.Config;
+﻿using rules_of_seo.Config;
 using rules_of_seo.Model;
 using rules_of_seo.Validation.Interfaces;
 using rules_of_seo.Validation.Rules.Interface;
@@ -47,25 +45,25 @@ namespace rules_of_seo.Validation
         IUniqueValidator uniqueValidator,
         ILogger<Validator> logger)
         {
-          _allowAdditionParagraphValidator = allowAdditionParagraphValidator;
-          _checkPlagiatValidator = checkPlagiatValidator;
-          _competitorsMixValidator = competitorsMixValidator;
-          _endKeywordValidator = endKeywordValidator;
-          _firstIncludeOthersValidator = firstIncludeOthersValidator;
-          _isKeywordValidator = isKeywordValidator;
-          _isUrlValidator = isUrlValidator;
-          _maxCompetitorLengthValidator = maxCompetitorLengthValidator;
-          _maxKeywordsValidator = maxKeywordsValidator;
-          _maxLengthValidator = maxLengthValidator;
-          _middleKeywordValidator = middleKeywordValidator;
-          _minKeywordsValidator = minKeywordsValidator;
-          _minLengthValidator = minLengthValidator;
-          _refValidator = refValidator;
-          _startKeywordValidator = startKeywordValidator;
-          _uniqueValidator = uniqueValidator;
+            _allowAdditionParagraphValidator = allowAdditionParagraphValidator;
+            _checkPlagiatValidator = checkPlagiatValidator;
+            _competitorsMixValidator = competitorsMixValidator;
+            _endKeywordValidator = endKeywordValidator;
+            _firstIncludeOthersValidator = firstIncludeOthersValidator;
+            _isKeywordValidator = isKeywordValidator;
+            _isUrlValidator = isUrlValidator;
+            _maxCompetitorLengthValidator = maxCompetitorLengthValidator;
+            _maxKeywordsValidator = maxKeywordsValidator;
+            _maxLengthValidator = maxLengthValidator;
+            _middleKeywordValidator = middleKeywordValidator;
+            _minKeywordsValidator = minKeywordsValidator;
+            _minLengthValidator = minLengthValidator;
+            _refValidator = refValidator;
+            _startKeywordValidator = startKeywordValidator;
+            _uniqueValidator = uniqueValidator;
             this.logger = logger;
             _ruleValidators = new Dictionary<string, IRuleValidator>
-                            { 
+                            {
                                   { allowAdditionParagraphValidator.Slug, allowAdditionParagraphValidator },
                                   { checkPlagiatValidator.Slug, checkPlagiatValidator },
                                   { competitorsMixValidator.Slug, competitorsMixValidator },
@@ -86,13 +84,13 @@ namespace rules_of_seo.Validation
         }
 
         public List<RuleMessage> Validate(
-          List<PageChunk> c, 
+          List<PageChunk> c,
           Dictionary<string, Rule> r)
         {
             List<RuleMessage> messages = new List<RuleMessage>();
-            foreach(var chunk in c)
+            foreach (var chunk in c)
             {
-                if(string.IsNullOrWhiteSpace(chunk.Slug))
+                if (string.IsNullOrWhiteSpace(chunk.Slug))
                 {
                     logger.LogError("No slug for chunk : " + chunk.Value);
                     continue;
@@ -100,12 +98,12 @@ namespace rules_of_seo.Validation
 
                 var v = _ruleValidators[chunk.Slug];
                 var m = v.Validate(chunk, r[chunk.Slug]);
-                if(m != null)
+                if (m != null)
                 {
                     messages.Add(m);
                 }
             }
-            
+
             return messages;
         }
     }

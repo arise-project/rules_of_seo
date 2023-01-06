@@ -1,17 +1,15 @@
-using Microsoft.Extensions.Hosting;
-using rules_of_seo;
-using System.Threading.Tasks;
-
-public static class Program
+namespace rules_of_seo
 {
-    public static async Task Main(string [] args)
+    public static class Program
     {
-        IHost host = Host.CreateDefaultBuilder(args)
-            .ConfigureAppConfiguration(Startup.Configuration)
-            .ConfigureServices(Startup.Services)
-            .Build();
+        public static async Task Main(string[] args)
+        {
+            IHost host = Host.CreateDefaultBuilder(args)
+                .ConfigureAppConfiguration(Startup.Configuration)
+                .ConfigureServices(Startup.Services)
+                .Build();
 
-        await host.RunAsync();
+            await host.RunAsync();
+        }
     }
 }
-

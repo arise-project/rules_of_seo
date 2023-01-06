@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace rules_of_seo.Service
+﻿namespace rules_of_seo.Service
 {
     public interface ICompetitorKeywordsService
     {
