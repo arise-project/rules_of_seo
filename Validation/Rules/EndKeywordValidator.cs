@@ -3,6 +3,8 @@ using rules_of_seo.Model;
 using rules_of_seo.Validation.Rules.Interface;
 using Microsoft.Extensions.Options;
 using rules_of_seo.Service.Interfaces;
+using Microsoft.Extensions.Logging;
+using System;
 
 namespace rules_of_seo.Validation.Rules
 {

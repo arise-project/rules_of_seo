@@ -1,4 +1,5 @@
 ﻿using rules_of_seo.Config;
+
 namespace rules_of_seo.Model
 {
     public class FormatHowToBlock

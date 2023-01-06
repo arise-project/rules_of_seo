@@ -1,4 +1,6 @@
-﻿namespace rules_of_seo.Config
+﻿using System;
+
+namespace rules_of_seo.Config
 {
     [AttributeUsage(AttributeTargets.Property)]
     public class SlugAttribute : Attribute

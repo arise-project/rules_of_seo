@@ -1,4 +1,5 @@
-﻿using rules_of_seo.Validation.Interfaces;
+﻿using System.Collections.Generic;
+using rules_of_seo.Validation.Interfaces;
 
 namespace rules_of_seo.Service.Interface
 {

@@ -2,6 +2,8 @@ using rules_of_seo.Config;
 using rules_of_seo.Model;
 using rules_of_seo.Validation.Rules.Interface;
 using rules_of_seo.Service.Interfaces;
+using Microsoft.Extensions.Logging;
+using System;
 
 namespace rules_of_seo.Validation.Rules
 {

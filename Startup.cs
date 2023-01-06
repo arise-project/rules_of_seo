@@ -9,6 +9,10 @@ using rules_of_seo.Service.Interface;
 using YamlDotNet.Serialization;
 using YamlDotNet.Serialization.NamingConventions;
 using rules_of_seo.Service.Interfaces;
+using Microsoft.Extensions.DependencyInjection;
+using System.IO;
+using Microsoft.Extensions.Configuration;
+using System;
 
 namespace rules_of_seo
 {

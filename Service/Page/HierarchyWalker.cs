@@ -1,3 +1,6 @@
+using System;
+using System.IO;
+using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using rules_of_seo.Model;
 using rules_of_seo.Service.Interface;

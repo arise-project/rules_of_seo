@@ -1,4 +1,7 @@
-﻿using rules_of_seo.Config;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using rules_of_seo.Config;
 using rules_of_seo.Service.Interface;
 using rules_of_seo.Validation.Interfaces;
 

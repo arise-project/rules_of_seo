@@ -1,4 +1,5 @@
-﻿using YamlDotNet.Serialization;
+﻿using System.Collections.Generic;
+using YamlDotNet.Serialization;
 
 namespace rules_of_seo.Config
 {

@@ -1,4 +1,5 @@
-﻿using rules_of_seo.Model;
+﻿using System.Collections.Generic;
+using rules_of_seo.Model;
 using rules_of_seo.Service.Interface;
 
 namespace rules_of_seo.Service

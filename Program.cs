@@ -1,3 +1,6 @@
+using System.Threading.Tasks;
+using Microsoft.Extensions.Hosting;
+
 namespace rules_of_seo
 {
     public static class Program

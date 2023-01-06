@@ -1,4 +1,6 @@
-﻿using rules_of_seo.Config;
+﻿using System.Collections.Generic;
+using Microsoft.Extensions.Logging;
+using rules_of_seo.Config;
 using rules_of_seo.Model;
 using rules_of_seo.Validation.Interfaces;
 using rules_of_seo.Validation.Rules.Interface;
