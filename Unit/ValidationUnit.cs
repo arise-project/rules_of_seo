@@ -41,11 +41,11 @@ namespace rules_of_seo.Service
                 throw new Exception();
             }
 
-            if (string.IsNullOrWhiteSpace(_config.SettingsFile))
-            {
-                logger.LogError("Set Config SettingsFile");
-                throw new Exception();
-            }
+            // if (string.IsNullOrWhiteSpace(_config.SettingsFile))
+            // {
+            //     logger.LogError("Set Config SettingsFile");
+            //     throw new Exception();
+            // }
 
             if (string.IsNullOrWhiteSpace(_config.TextFolder))
             {
@@ -53,7 +53,7 @@ namespace rules_of_seo.Service
                 throw new Exception();
             }
 
-            var rules = _ruleService.GetRules(_config.SettingsFile);
+            var rules = _ruleService.GetRules();
             var pages = new List<PageFile>();
             foreach (var textFile in Directory.GetFiles(
                 Path.Combine(_config.TextFolder, _config.App),
