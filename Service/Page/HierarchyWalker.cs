@@ -1,3 +1,4 @@
+using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using rules_of_seo.Model;
 using rules_of_seo.Service.Interface;
@@ -9,12 +10,14 @@ namespace rules_of_seo.Service
     public class HierarchyWalker : IHierarchyWalker, IDisposable
     {
         private readonly IKeyToSlugResolver slugResolver;
-        private JsonTextReader Reader;
+        private readonly ILogger<HierarchyWalker> logger;
+        private JsonTextReader? Reader;
         private bool disposedValue;
 
-        public HierarchyWalker(IKeyToSlugResolver slugResolver)
+        public HierarchyWalker(IKeyToSlugResolver slugResolver, ILogger<HierarchyWalker> logger)
         {
             this.slugResolver = slugResolver;
+            this.logger = logger;
         }
 
         public void Open(string textFile)
@@ -23,8 +26,14 @@ namespace rules_of_seo.Service
             Reader = new JsonTextReader(new StringReader(jsonText));
         }
 
-        public PageChunk Read()
+        public PageChunk? Read()
         {
+            if(Reader == null)
+            {
+                logger.LogError("Open file first");
+                return null;
+            }
+
             while(Reader.Read())
             {
                 if(Reader.TokenType == JsonToken.String)
@@ -46,7 +55,7 @@ namespace rules_of_seo.Service
         {
             if (!disposedValue)
             {
-                if (disposing)
+                if (disposing && Reader != null)
                 {
                     // TODO: dispose managed state (managed objects)
                     Reader.Close();

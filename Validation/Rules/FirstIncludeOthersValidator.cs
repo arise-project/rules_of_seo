@@ -18,7 +18,7 @@ namespace rules_of_seo.Validation.Rules
         public string Slug { get; } = "first-include-others";
         
 		// is this reqired, this old data format
-        public RuleMessage Validate(PageChunk c, Rule r)
+        public RuleMessage? Validate(PageChunk c, Rule r)
         {
             if(r.FirstIncludeOthers != true)
             {

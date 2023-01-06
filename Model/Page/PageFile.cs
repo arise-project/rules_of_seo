@@ -8,6 +8,7 @@ namespace rules_of_seo.Model
         public PageFile(string file)
         {
             File = file;
+            Chunks = new List<PageChunk>();
         }
         
         public string Segment => new DirectoryInfo(Path.GetDirectoryName(File)).Name;

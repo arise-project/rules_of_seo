@@ -23,7 +23,7 @@ namespace rules_of_seo.Validation.Rules
         public string Slug { get; } = "competitors-mix";
 	
 		// check is any sentences of competitors exists. Better to copy more from competitors.
-        public RuleMessage Validate(PageChunk c, Rule r)
+        public RuleMessage? Validate(PageChunk c, Rule r)
         {
             if(r.CompetitorsMix != true)
             {

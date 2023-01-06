@@ -13,12 +13,13 @@ using rules_of_seo.Service.Interface;
 
 using YamlDotNet.Serialization;
 using YamlDotNet.Serialization.NamingConventions;
+using rules_of_seo.Service.Interfaces;
 
 namespace rules_of_seo
 {
     public static class Startup
     {
-        private static IConfiguration configuration;
+        private static IConfiguration? configuration;
         
         public static void Configuration(HostBuilderContext hostBuilder, IConfigurationBuilder configBuilder)
         {
@@ -30,12 +31,18 @@ namespace rules_of_seo
         
         public static void Services(IServiceCollection services)
         {
-            services.Configure<AppConfig>(configuration.GetSection("App"));
+            services.Configure<AppConfig>(configuration?.GetSection("App"));
 
             //config services
             services.AddSingleton<IRuleService, RuleService>();
             services.AddSingleton<ISlugService, SlugService>();
-            services.AddSingleton((f) => BuildSettings());
+            var settings = BuildSettings();
+            if(settings == null)
+            {
+                throw new Exception("can not read settings");
+            }
+
+            services.AddSingleton((f) => settings);
 
             //data services
             services.AddSingleton<IPageService, PageService>();
@@ -59,17 +66,16 @@ namespace rules_of_seo
             services.AddSingleton<IMinKeywordsValidator,MinKeywordsValidator>();
             services.AddSingleton<IMinLengthValidator,MinLengthValidator>();
             services.AddSingleton<IRefValidator,RefValidator>();
-            services.AddSingleton<IStartKeywordValidator,S1tartKeywordValidator>();
+            services.AddSingleton<IStartKeywordValidator,StartKeywordValidator>();
             services.AddSingleton<IUniqueValidator,UniqueValidator>();
 
             //engine services
             services.AddSingleton<IValidationUnit, ValidationUnit>();
             services.AddSingleton<IValidator, Validator>();
-            services.AddSingleton<IRuleValidatorService, RuleValidatorService>();
             services.AddHostedService<Worker>();
         }
         
-        private static Settings BuildSettings()
+        private static Settings? BuildSettings()
         {
         	try
         	{

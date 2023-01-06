@@ -7,22 +7,23 @@ namespace rules_of_seo.Service
     public class PageService : IPageService
     {
         private readonly IKeyToSlugResolver slugResolver;
+        private readonly IHierarchyWalker hierarchyWalker;
 
-        public PageService(IKeyToSlugResolver slugResolver)
+        public PageService(IKeyToSlugResolver slugResolver, IHierarchyWalker hierarchyWalker)
         {
             this.slugResolver = slugResolver;
+            this.hierarchyWalker = hierarchyWalker;
         }
 
         public List<PageChunk> Read(string fileName)
         {
-            var w = new HierarchyWalker(slugResolver);
             var texts = new List<PageChunk>();
-            PageChunk c;
+            PageChunk? c;
 
             do
             {
-                c = w.Read();
-                if(!string.IsNullOrEmpty(c.Slug))
+                c = hierarchyWalker.Read();
+                if(!string.IsNullOrEmpty(c?.Slug))
                 {
                     texts.Add(c);
                 }

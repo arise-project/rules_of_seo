@@ -1,11 +1,11 @@
-using rules_of_seo.Model;
 using rules_of_seo.Service.Interface;
+using System.Linq;
 
 namespace rules_of_seo.Service
 {
     public class KeyToSlugResolver : IKeyToSlugResolver
     {
-        public string Resolve(string key)
+        public string? Resolve(string key)
         {
             var d = key.Count(c => c == '.');
             var l = key.Split('.').Last();

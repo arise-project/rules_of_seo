@@ -7,6 +7,7 @@ using rules_of_seo.Service.Interface;
 using YamlDotNet.Serialization;
 using YamlDotNet.Serialization.NamingConventions;
 using rules_of_seo.Service.Interfaces;
+using System.Linq;
 
 namespace rules_of_seo.Service
 {
@@ -27,7 +28,8 @@ namespace rules_of_seo.Service
             _keywordService = keywordService;
 			_competitorService = competitorService;
 			_competitorKeywordsService = competitorKeywordsService;
-            
+
+            Apps = new List<string>();
             Keywords = new Dictionary<string, List<Keyword>>();
             Competitors = new Dictionary<string, List<Competitor>>();
             CompetitorKeywords = new Dictionary<string, List<string>>(); 
@@ -36,6 +38,7 @@ namespace rules_of_seo.Service
         public void Read()
         {
             Apps = Directory.GetDirectories(_config.DataFolder).ToList();
+
             foreach(var app in Apps)
             {
             	Keywords.Add(app, _keywordService.Read(app));
@@ -44,9 +47,9 @@ namespace rules_of_seo.Service
             }
         }
         
-        public List<string> Apps { get; }
-        public Dictionary<string, List<Keyword>> Keywords { get; }
-        public Dictionary<string, List<Competitor>> Competitors { get; }
-        public Dictionary<string, List<string>> CompetitorKeywords { get; }
+        public List<string> Apps { get; set; }
+        public Dictionary<string, List<Keyword>> Keywords { get; set; }
+        public Dictionary<string, List<Competitor>> Competitors { get; set; }
+        public Dictionary<string, List<string>> CompetitorKeywords { get; set; }
     }
 }

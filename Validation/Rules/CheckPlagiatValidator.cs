@@ -23,7 +23,7 @@ namespace rules_of_seo.Validation.Rules
         public string Slug { get; } = "check-plagiat";
 
 		// this possible to check within available top competitors
-        public RuleMessage Validate(PageChunk c, Rule r)
+        public RuleMessage? Validate(PageChunk c, Rule r)
         {
             if(r.CheckPlagiat != true)
             {

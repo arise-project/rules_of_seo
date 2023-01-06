@@ -18,7 +18,7 @@ namespace rules_of_seo.Validation.Rules
         public string Slug { get; } = "is-url";
 
 		// is this required? because this for segmet keyword read
-        public RuleMessage Validate(PageChunk c, Rule r)
+        public RuleMessage? Validate(PageChunk c, Rule r)
         {
             if(r.IsUrl != true)
             {

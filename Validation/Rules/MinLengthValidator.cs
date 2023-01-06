@@ -18,7 +18,7 @@ namespace rules_of_seo.Validation.Rules
         public string Slug { get; } = "min-length";
 
 		// check min lengh
-        public RuleMessage Validate(PageChunk c, Rule r)
+        public RuleMessage? Validate(PageChunk c, Rule r)
         {
             if(!r.MinLength.HasValue)
             {

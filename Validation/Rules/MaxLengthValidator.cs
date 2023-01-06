@@ -18,7 +18,7 @@ namespace rules_of_seo.Validation.Rules
         public string Slug { get; } = "max-length";
 
 		// check max length is not exid
-        public RuleMessage Validate(PageChunk c, Rule r)
+        public RuleMessage? Validate(PageChunk c, Rule r)
         {
             if(!r.MaxLength.HasValue)
             {

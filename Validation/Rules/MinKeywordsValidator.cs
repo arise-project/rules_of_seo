@@ -25,7 +25,7 @@ namespace rules_of_seo.Validation.Rules
         public string Slug { get; } = "min-keywords"; 
 
 		// ceck min count of keywords appeared
-        public RuleMessage Validate(PageChunk c, Rule r)
+        public RuleMessage? Validate(PageChunk c, Rule r)
         {
             if(!r.MinKeywords.HasValue)
             {

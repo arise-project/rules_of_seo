@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using rules_of_seo.Config;
 using rules_of_seo.Model;
@@ -11,31 +13,61 @@ namespace rules_of_seo.Validation.Rules
     {
 		private readonly AppConfig _config;    	
         private readonly ISeoRepository _seoRepository;
-        
+        private readonly ILogger<MaxCompetitorLengthValidator> logger;
+
         public MaxCompetitorLengthValidator(
         	ISeoRepository seoRepository,
-        	IOptions<AppConfig> config)
+        	IOptions<AppConfig> config,
+            ILogger<MaxCompetitorLengthValidator> logger)
         {
         	_config = config.Value;
 			_seoRepository = seoRepository;
+            this.logger = logger;
         }
         
         public string Slug { get; } = "max-competitor-length";
 
 		// win competitors by length
-        public RuleMessage Validate(PageChunk c, Rule r)
+        public RuleMessage? Validate(PageChunk c, Rule r)
         {
             if(r.MaxCompetitorLength != true)
             {
                 return null;
             }
-            
+
+            if (string.IsNullOrWhiteSpace(c.Value))
+            {
+                return new RuleMessage
+                {
+                    MessageLevel = MessageLevel.Error,
+                    Message = $"Chunk is empty but competitors"
+                };
+            }
+
+            if (string.IsNullOrWhiteSpace(_config.App))
+            {
+                logger.LogError("Set Config App");
+                throw new Exception();
+            }
+
             var competitors =  _seoRepository.Competitors[_config.App];
             
             int m = 0;
             foreach(var comp in competitors)
             {
-            	if(string.IsNullOrWhiteSpace(comp.Description) && m < comp.Description.Length)
+                if (comp == null)
+                {
+                    logger.LogError("competitor is null");
+                    continue;
+                }
+
+                if (string.IsNullOrWhiteSpace(comp.Description))
+                {
+                    logger.LogError("competitor have no description");
+                    continue;
+                }
+
+                if (string.IsNullOrWhiteSpace(comp.Description) && m < comp.Description.Length)
             	{
             		m = comp.Description.Length;
             	}

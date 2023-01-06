@@ -6,6 +6,6 @@ namespace rules_of_seo.Validation.Rules.Interface
     public interface IRuleValidator
     {
         public string Slug { get; }
-        RuleMessage Validate(PageChunk c, Rule r);
+        RuleMessage? Validate(PageChunk c, Rule r);
     }
 }

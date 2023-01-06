@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using rules_of_seo.Service.Interfaces;
 using Microsoft.Extensions.Options;
 using System;
+using Microsoft.Extensions.Logging;
 
 namespace rules_of_seo.Validation.Rules
 {
@@ -13,29 +14,59 @@ namespace rules_of_seo.Validation.Rules
     {
 		private readonly AppConfig _config;
         private readonly ISeoRepository _seoRepository;
-        
+        private readonly ILogger<StartKeywordValidator> logger;
+
         public StartKeywordValidator(
         	ISeoRepository seoRepository,
-        	IOptions<AppConfig> config)
+        	IOptions<AppConfig> config,
+            ILogger<StartKeywordValidator> logger)
         {
         	_config = config.Value;
 			_seoRepository = seoRepository;
+            this.logger = logger;
         }
         
         public string Slug { get; } = "start-keyword";
 
 		// check is text starts with any keyword
-        public RuleMessage Validate(PageChunk c, Rule r)
+        public RuleMessage? Validate(PageChunk c, Rule r)
         {
             if(r.StartKeyword != true)
             {
                 return null;
             }
 
-			var keywords = _seoRepository.Keywords[_config.App];
+            if (string.IsNullOrWhiteSpace(c.Value))
+            {
+                return new RuleMessage
+                {
+                    MessageLevel = MessageLevel.Error,
+                    Message = $"No keyword found at end of empty chunk"
+                };
+            }
+
+            if (string.IsNullOrWhiteSpace(_config.App))
+            {
+                logger.LogError("Set Config App");
+                throw new Exception();
+            }
+
+            var keywords = _seoRepository.Keywords[_config.App];
             foreach(var k in keywords)
             {
-            	if(string.Equals(k.Key, c.Value, StringComparison.OrdinalIgnoreCase))
+                if (k == null)
+                {
+                    logger.LogError("keyword is null");
+                    continue;
+                }
+
+                if (string.IsNullOrWhiteSpace(k.Key))
+                {
+                    logger.LogError("keyword key is null");
+                    continue;
+                }
+
+                if (string.Equals(k.Key, c.Value, StringComparison.OrdinalIgnoreCase))
             	{
             		return new RuleMessage
 		            {

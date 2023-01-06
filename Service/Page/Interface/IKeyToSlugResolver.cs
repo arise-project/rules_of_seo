@@ -1,10 +1,7 @@
-using rules_of_seo.Model;
-using rules_of_seo.Service.Interface;
-
 namespace rules_of_seo.Service.Interface
 {
     public interface IKeyToSlugResolver
     {
-        public string Resolve(string key);
+        public string? Resolve(string key);
     }
 }

@@ -5,18 +5,18 @@ namespace rules_of_seo.Config
 {
     public class Settings
     {
-        public List<Rule> Rules { get; set; }
+        public List<Rule>? Rules { get; set; }
         
         [YamlMember(Alias = "rule-keys", ApplyNamingConventions = false)]
-        public List<string> RuleKeys { get; set; }
+        public List<string>? RuleKeys { get; set; }
 
         [YamlMember(Alias = "keywords-file", ApplyNamingConventions = false)]
-        public string KeywordsFile { get; set; }
+        public string? KeywordsFile { get; set; }
 
         [YamlMember(Alias = "competitor-keywords-file", ApplyNamingConventions = false)]
-        public string CompetitorKeywordsFile { get; set; }
+        public string? CompetitorKeywordsFile { get; set; }
 
         [YamlMember(Alias = "competitor-file", ApplyNamingConventions = false)]
-        public string CompetitorFile { get; set; }
+        public string? CompetitorFile { get; set; }
     }
 }

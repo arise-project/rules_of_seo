@@ -7,8 +7,8 @@ namespace rules_of_seo.Service.Interfaces
     {
         void Read();
         List<string> Apps { get; }
-        Dictionary<string, List<Keyword>> Keywords { get; }
-        Dictionary<string, List<Competitor>> Competitors { get; }
-        Dictionary<string, List<string>> CompetitorKeywords { get; }
+        Dictionary<string, List<Keyword>> Keywords { get; set; }
+        Dictionary<string, List<Competitor>> Competitors { get; set; }
+        Dictionary<string, List<string>> CompetitorKeywords { get; set; }
     }
 }

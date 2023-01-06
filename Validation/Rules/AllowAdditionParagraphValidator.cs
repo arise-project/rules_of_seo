@@ -4,16 +4,19 @@ using rules_of_seo.Validation.Rules.Interface;
 using rules_of_seo.Service.Interface;
 using rules_of_seo.Service.Interfaces;
 using System;
+using Microsoft.Extensions.Logging;
 
 namespace rules_of_seo.Validation.Rules
 {
     public class AllowAdditionParagraphValidator : IAllowAdditionParagraphValidator
     {
     	private readonly ISeoRepository _seoRepository;
-    	
-        public AllowAdditionParagraphValidator(ISeoRepository seoRepository)
+        private readonly ILogger<AllowAdditionParagraphValidator> logger;
+
+        public AllowAdditionParagraphValidator(ISeoRepository seoRepository, ILogger<AllowAdditionParagraphValidator> logger)
         {
 			_seoRepository = seoRepository;
+            this.logger = logger;
         }
         
         public string Slug { get; } = "allow-addition-paragraph"; 
@@ -22,10 +25,16 @@ namespace rules_of_seo.Validation.Rules
         public const string ParagraphTagEnd = "</p>";
 
 		// check paragraphs valid in text or no paragraphs addtion paragraphs
-        public RuleMessage Validate(PageChunk c, Rule r)
+        public RuleMessage? Validate(PageChunk c, Rule r)
         {
         	if(!r.AllowAdditionParagraph.HasValue)
             {
+                return null;
+            }
+
+            if(string.IsNullOrWhiteSpace(c.Value))
+            {
+                logger.LogError("Chunk is empty");
                 return null;
             }
             

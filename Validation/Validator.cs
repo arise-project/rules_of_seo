@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Microsoft.Extensions.Logging;
 using rules_of_seo.Config;
 using rules_of_seo.Model;
 using rules_of_seo.Validation.Interfaces;
@@ -24,7 +25,7 @@ namespace rules_of_seo.Validation
         private readonly IRefValidator _refValidator;
         private readonly IStartKeywordValidator _startKeywordValidator;
         private readonly IUniqueValidator _uniqueValidator;
-
+        private readonly ILogger<Validator> logger;
         private readonly Dictionary<string, IRuleValidator> _ruleValidators;
 
         public Validator(
@@ -43,7 +44,8 @@ namespace rules_of_seo.Validation
         IMinLengthValidator minLengthValidator,
         IRefValidator refValidator,
         IStartKeywordValidator startKeywordValidator,
-        IUniqueValidator uniqueValidator)
+        IUniqueValidator uniqueValidator,
+        ILogger<Validator> logger)
         {
           _allowAdditionParagraphValidator = allowAdditionParagraphValidator;
           _checkPlagiatValidator = checkPlagiatValidator;
@@ -61,8 +63,8 @@ namespace rules_of_seo.Validation
           _refValidator = refValidator;
           _startKeywordValidator = startKeywordValidator;
           _uniqueValidator = uniqueValidator;
-          
-          _ruleValidators = new Dictionary<string, IRuleValidator>
+            this.logger = logger;
+            _ruleValidators = new Dictionary<string, IRuleValidator>
                             { 
                                   { allowAdditionParagraphValidator.Slug, allowAdditionParagraphValidator },
                                   { checkPlagiatValidator.Slug, checkPlagiatValidator },
@@ -90,9 +92,18 @@ namespace rules_of_seo.Validation
             List<RuleMessage> messages = new List<RuleMessage>();
             foreach(var chunk in c)
             {
+                if(string.IsNullOrWhiteSpace(chunk.Slug))
+                {
+                    logger.LogError("No slug for chunk : " + chunk.Value);
+                    continue;
+                }
+
                 var v = _ruleValidators[chunk.Slug];
                 var m = v.Validate(chunk, r[chunk.Slug]);
-                messages.Add(m);
+                if(m != null)
+                {
+                    messages.Add(m);
+                }
             }
             
             return messages;

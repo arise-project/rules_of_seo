@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Net;
+using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using rules_of_seo.Config;
 using rules_of_seo.Model;
@@ -15,22 +17,43 @@ namespace rules_of_seo.Service
         private readonly IRuleService _ruleService;
         private readonly IPageService _pageService;
         private readonly IValidator _validator;
-        
+        private readonly ILogger<ValidationUnit> logger;
+
         public ValidationUnit(
             IOptions<AppConfig> config,
             IRuleService ruleService, 
             IPageService pageService,
-            IValidator validator
+            IValidator validator,
+            ILogger<ValidationUnit> logger
             )
         {
             _config = config.Value;
             _ruleService = ruleService;
             _pageService = pageService;
             _validator = validator;
+            this.logger = logger;
         }
         
         public void Execute()
         {
+            if (string.IsNullOrWhiteSpace(_config.App))
+            {
+                logger.LogError("Set Config App");
+                throw new Exception();
+            }
+
+            if (string.IsNullOrWhiteSpace(_config.SettingsFile))
+            {
+                logger.LogError("Set Config SettingsFile");
+                throw new Exception();
+            }
+
+            if (string.IsNullOrWhiteSpace(_config.TextFolder))
+            {
+                logger.LogError("Set Config TextFolder");
+                throw new Exception();
+            }
+
             var rules = _ruleService.GetRules(_config.SettingsFile);
             var pages = new List<PageFile>();
             foreach (var textFile in Directory.GetFiles(
@@ -48,7 +71,7 @@ namespace rules_of_seo.Service
             foreach(var page in pages)
             {
             	var messages = _validator.Validate(page.Chunks, rules);
-            	foreach(var m in message)
+            	foreach(var m in messages)
             	{
             		if(m == null)
             		{

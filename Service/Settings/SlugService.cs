@@ -4,6 +4,7 @@ using rules_of_seo.Config;
 using rules_of_seo.Validation;
 using rules_of_seo.Service.Interface;
 using rules_of_seo.Validation.Interfaces;
+using System;
 
 namespace rules_of_seo.Service
 {
@@ -24,7 +25,7 @@ namespace rules_of_seo.Service
                             false)
                     .First());
 
-            return null;
+            throw new NotImplementedException();
         }
     }
 }

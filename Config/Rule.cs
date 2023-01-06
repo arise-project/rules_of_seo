@@ -4,7 +4,7 @@ namespace rules_of_seo.Config
 {
     public class Rule
     {
-        public string Slug { get; set; }
+        public string? Slug { get; set; }
 
         [YamlMember(Alias = "min-keywords", ApplyNamingConventions = false)]
         public int? MinKeywords { get; set; }
@@ -48,7 +48,7 @@ namespace rules_of_seo.Config
         public bool? EndKeyword { get; set; }
 
         [YamlMember(Alias = "ref", ApplyNamingConventions = false)]
-        public string Ref { get; set; }
+        public string? Ref { get; set; }
         
         [YamlMember(Alias = "middle-keyword", ApplyNamingConventions = false)]
         public bool? MiddleKeyword { get; set; }

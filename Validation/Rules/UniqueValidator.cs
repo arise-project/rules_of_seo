@@ -25,7 +25,7 @@ namespace rules_of_seo.Validation.Rules
 
 		// same with plagiat? walidate within apps overview is texts complitly different by sentences 
 		// or long sequence algorithms
-        public RuleMessage Validate(PageChunk c, Rule r)
+        public RuleMessage? Validate(PageChunk c, Rule r)
         {
             if(r.Unique != true)
             {

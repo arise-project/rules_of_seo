@@ -24,7 +24,7 @@ namespace rules_of_seo.Validation.Rules
         public string Slug { get; } = "max-keywords";
 
 		// do not use a lot of keywords
-        public RuleMessage Validate(PageChunk c, Rule r)
+        public RuleMessage? Validate(PageChunk c, Rule r)
         {
             if(!r.MaxKeywords.HasValue)
             {
