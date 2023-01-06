@@ -1,6 +1,8 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using rules_of_seo.Config;
 using rules_of_seo.Model;
@@ -14,12 +16,14 @@ namespace rules_of_seo.Service
         private readonly IKeywordService _keywordService;
         private readonly ICompetitorService _competitorService;
         private readonly ICompetitorKeywordsService _competitorKeywordsService;
+        private readonly ILogger<SeoRepository> logger;
 
         public SeoRepository(
-            IOptions<AppConfig> config,
-            IKeywordService keywordService,
-            ICompetitorService competitorService,
-               ICompetitorKeywordsService competitorKeywordsService)
+               IOptions<AppConfig> config,
+               IKeywordService keywordService,
+               ICompetitorService competitorService,
+               ICompetitorKeywordsService competitorKeywordsService,
+               ILogger<SeoRepository> logger)
         {
             _config = config.Value;
             _keywordService = keywordService;
@@ -30,10 +34,17 @@ namespace rules_of_seo.Service
             Keywords = new Dictionary<string, List<Keyword>>();
             Competitors = new Dictionary<string, List<Competitor>>();
             CompetitorKeywords = new Dictionary<string, List<string>>();
+            this.logger = logger;
         }
 
         public void Read()
         {
+            if (string.IsNullOrWhiteSpace(_config.DataFolder))
+            {
+                logger.LogError("Set Config DataFolder");
+                throw new Exception();
+            }
+
             Apps = Directory.GetDirectories(_config.DataFolder).ToList();
 
             foreach (var app in Apps)
