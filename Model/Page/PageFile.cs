@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using System.IO;
+
 namespace rules_of_seo.Model
 {
     public class PageFile

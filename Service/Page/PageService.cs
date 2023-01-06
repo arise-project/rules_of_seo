@@ -1,5 +1,6 @@
 ﻿using rules_of_seo.Model;
 using rules_of_seo.Service.Interface;
+using System.Collections.Generic;
 
 namespace rules_of_seo.Service
 {

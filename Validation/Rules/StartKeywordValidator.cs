@@ -2,6 +2,10 @@ using System.Collections.Generic;
 using rules_of_seo.Config;
 using rules_of_seo.Model;
 using rules_of_seo.Validation.Rules.Interface;
+using Microsoft.Extensions.Configuration;
+using rules_of_seo.Service.Interfaces;
+using Microsoft.Extensions.Options;
+using System;
 
 namespace rules_of_seo.Validation.Rules
 {
@@ -28,10 +32,10 @@ namespace rules_of_seo.Validation.Rules
                 return null;
             }
 
-			var keywords = _seoRespository.Keywords[_config.App];
+			var keywords = _seoRepository.Keywords[_config.App];
             foreach(var k in keywords)
             {
-            	if(string.Equals(k, c.Value, StringComparison.OrdinalIgnoreCalse))
+            	if(string.Equals(k.Key, c.Value, StringComparison.OrdinalIgnoreCase))
             	{
             		return new RuleMessage
 		            {
@@ -40,11 +44,11 @@ namespace rules_of_seo.Validation.Rules
 		            };
             	};
             	
-            	if(c.Value.StartWith(k))
+            	if(c.Value.StartsWith(k.Key))
             	{
             		return new RuleMessage
 		            {
-		                MessageLeveln = MessageLevel.Info,
+		                MessageLevel = MessageLevel.Info,
 		                Message = $"Foung text after keyword " + k + "in " + c.Value
 		            };
             	};	
@@ -52,7 +56,7 @@ namespace rules_of_seo.Validation.Rules
             
             return new RuleMessage
 		            {
-		                MessageLeveln = MessageLevel.Error,
+		                MessageLevel = MessageLevel.Error,
 		                Message = $"No keyword found at end of " + c.Value
 		            };
         }

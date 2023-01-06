@@ -1,3 +1,6 @@
+using rules_of_seo.Model;
+using System.Collections.Generic;
+
 namespace rules_of_seo.Service.Interfaces
 {
     public interface ISeoRepository

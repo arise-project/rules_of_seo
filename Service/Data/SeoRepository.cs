@@ -6,6 +6,7 @@ using rules_of_seo.Model;
 using rules_of_seo.Service.Interface;
 using YamlDotNet.Serialization;
 using YamlDotNet.Serialization.NamingConventions;
+using rules_of_seo.Service.Interfaces;
 
 namespace rules_of_seo.Service
 {

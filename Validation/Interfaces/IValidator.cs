@@ -6,6 +6,6 @@ namespace rules_of_seo.Validation.Interfaces
 {
     public interface IValidator
     {
-        List<RuleMessage> Validate(PageChunk c, Rule r);
+        List<RuleMessage> Validate(List<PageChunk> c, Dictionary<string, Rule> r);
     }
 }

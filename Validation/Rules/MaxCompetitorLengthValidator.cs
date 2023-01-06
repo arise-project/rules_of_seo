@@ -1,6 +1,8 @@
 using System.Collections.Generic;
+using Microsoft.Extensions.Options;
 using rules_of_seo.Config;
 using rules_of_seo.Model;
+using rules_of_seo.Service.Interfaces;
 using rules_of_seo.Validation.Rules.Interface;
 
 namespace rules_of_seo.Validation.Rules
@@ -33,9 +35,9 @@ namespace rules_of_seo.Validation.Rules
             int m = 0;
             foreach(var comp in competitors)
             {
-            	if(m < comp.Description?.Length)
+            	if(string.IsNullOrWhiteSpace(comp.Description) && m < comp.Description.Length)
             	{
-            		m = comp.Description?.Length;
+            		m = comp.Description.Length;
             	}
             }
             
@@ -43,14 +45,14 @@ namespace rules_of_seo.Validation.Rules
             {
             	new RuleMessage
 		            {
-		                MessageLeveln = MessageLevel.Error,
+		                MessageLevel = MessageLevel.Error,
 		                Message = $"Found competitor with larger text when " + c.Value
 		            };
             }
             
             return new RuleMessage
 		            {
-		                MessageLeveln = MessageLevel.Info,
+		                MessageLevel = MessageLevel.Info,
 		                Message = $"Win competitors by length " + c.Slug
 		            };
         }

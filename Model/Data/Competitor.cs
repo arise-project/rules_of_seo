@@ -7,5 +7,6 @@ namespace rules_of_seo.Model
         public string Url { get; set; }
         public string Title { get; set; }
         public List<string> Keywords { get; set; }
+        public string Description { get; set; }
     }
 }

@@ -1,6 +1,9 @@
 using rules_of_seo.Config;
 using rules_of_seo.Model;
 using rules_of_seo.Validation.Rules.Interface;
+using rules_of_seo.Service.Interface;
+using rules_of_seo.Service.Interfaces;
+using System;
 
 namespace rules_of_seo.Validation.Rules
 {
@@ -66,9 +69,11 @@ namespace rules_of_seo.Validation.Rules
 	  		else if(bc > 1)
 	  			return new RuleMessage
 	            {
-	                MessageLevel = MessageLevel.Eorror,
+	                MessageLevel = MessageLevel.Error,
 	                Message = $"found additomal paragraphs {bc} paragraphs"
 	            };
+
+            return null;
         }
     }
 }
