@@ -1,6 +1,6 @@
 ﻿using rules_of_seo.Model;
 
-namespace rules_of_seo.Service.Inerface
+namespace rules_of_seo.Service.Interface
 {
     public interface IPageService
     {

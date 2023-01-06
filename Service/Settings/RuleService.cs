@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using rules_of_seo.Config;
-using rules_of_seo.Service.Inerface;
+using rules_of_seo.Service.Interface;
 namespace rules_of_seo.Service
 {
     public class RuleService : IRuleService

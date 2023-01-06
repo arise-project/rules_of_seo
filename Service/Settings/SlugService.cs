@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using rules_of_seo.Config;
 using rules_of_seo.Validation;
-using rules_of_seo.Service.Inerface;
+using rules_of_seo.Service.Interface;
 using rules_of_seo.Validation.Interfaces;
 
 namespace rules_of_seo.Service

@@ -4,7 +4,9 @@ using System.Net;
 using Microsoft.Extensions.Options;
 using rules_of_seo.Config;
 using rules_of_seo.Model;
-using rules_of_seo.Service.Inerface;
+using rules_of_seo.Service.Interface;
+using rules_of_seo.Validation.Interfaces;
+
 namespace rules_of_seo.Service
 {
     public class ValidationUnit : IValidationUnit
@@ -13,7 +15,7 @@ namespace rules_of_seo.Service
         private readonly IRuleService _ruleService;
         private readonly IPageService _pageService;
         private readonly IValidator _validator;
-
+        
         public ValidationUnit(
             IOptions<AppConfig> config,
             IRuleService ruleService, 

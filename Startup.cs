@@ -5,11 +5,12 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using rules_of_seo.Config;
 using rules_of_seo.Service;
-using rules_of_seo.Service.Inerface;
 using rules_of_seo.Validation;
 using rules_of_seo.Validation.Interfaces;
 using rules_of_seo.Validation.Rules;
 using rules_of_seo.Validation.Rules.Interface;
+using rules_of_seo.Service.Interface;
+
 using YamlDotNet.Serialization;
 using YamlDotNet.Serialization.NamingConventions;
 

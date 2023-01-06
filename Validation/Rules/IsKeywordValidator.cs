@@ -40,7 +40,7 @@ namespace rules_of_seo.Validation.Rules
 		            };
             	};
             	
-            	if(c.Value.IndexOf(k, StringComparison.OrdinalgnoreCase) != -1))
+            	if(c.Value.IndexOf(k, StringComparison.OrdinalgnoreCase) != -1)
             	{
             		return new RuleMessage
 		            {

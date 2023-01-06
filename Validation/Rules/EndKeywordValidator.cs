@@ -40,7 +40,7 @@ namespace rules_of_seo.Validation.Rules
 		            };
             	};
             	
-            	if(c.Value.EndWith(k)))
+            	if(c.Value.EndWith(k))
             	{
             		return new RuleMessage
 		            {
