@@ -49,6 +49,8 @@ namespace rules_of_seo
             services.AddSingleton<ICompetitorService, CompetitorService>();
             services.AddSingleton<ICompetitorKeywordsService, CompetitorKeywordsService>();
             services.AddSingleton<ISeoRepository, SeoRepository>();
+            services.AddSingleton<IKeyToSlugResolver, KeyToSlugResolver>();
+            services.AddSingleton<IHierarchyWalker, HierarchyWalker>();
 
             //rule validation
             services.AddSingleton<IAllowAdditionParagraphValidator, AllowAdditionParagraphValidator>();

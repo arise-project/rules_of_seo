@@ -6,12 +6,10 @@ namespace rules_of_seo.Service
 {
     public class PageService : IPageService
     {
-        private readonly IKeyToSlugResolver slugResolver;
         private readonly IHierarchyWalker hierarchyWalker;
 
-        public PageService(IKeyToSlugResolver slugResolver, IHierarchyWalker hierarchyWalker)
+        public PageService(IHierarchyWalker hierarchyWalker)
         {
-            this.slugResolver = slugResolver;
             this.hierarchyWalker = hierarchyWalker;
         }
 
