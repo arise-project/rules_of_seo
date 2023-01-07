@@ -117,6 +117,12 @@ namespace rules_of_seo.Validation
                     }
                 }
 
+                if(!combined.Any())
+                {
+                    logger.LogInformation("No messages for chunk : " + chunk.Slug + " " + chunk.Value);
+                    continue;
+                }
+
                 logger.LogInformation($"{chunk.Slug}: {string.Join(Environment.NewLine, combined.Where(m => m.MessageLevel == MessageLevel.Info).Select(m => m.Message))}");
 
                 logger.LogError($"{chunk.Slug}: {string.Join(Environment.NewLine, combined.Where(m => m.MessageLevel != MessageLevel.Info).Select(m => m.Message))}");

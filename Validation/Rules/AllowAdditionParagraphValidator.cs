@@ -48,14 +48,22 @@ namespace rules_of_seo.Validation.Rules
             do
             {
                 b = c.Value.IndexOf(ParagraphTagBeg, b, c.Value.Length - b, StringComparison.OrdinalIgnoreCase);
-                if (b != -1) bc++;
+                if (b != -1)
+                {
+                    bc++;
+                    b++;
+                }
             }
             while (b != -1);
 
             do
             {
                 e = c.Value.IndexOf(ParagraphTagBeg, e, c.Value.Length - e, StringComparison.OrdinalIgnoreCase);
-                if (e != -1) ec++;
+                if (e != -1)
+                {
+                    ec++;
+                    e++;
+                }
             }
             while (b != -1);
 
