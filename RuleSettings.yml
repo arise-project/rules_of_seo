@@ -8,7 +8,7 @@ rules:
       is-url: true
     - slug: app-title
       is-keyword: true
-      allow-addition-paragraph: flase
+      allow-addition-paragraph: false
     - slug: app-block-title
       is-keyword: true
       allow-addition-paragraph: false
