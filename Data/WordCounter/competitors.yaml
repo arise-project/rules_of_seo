@@ -1,40 +1,50 @@
-web-sites:
-	-
-		url:https://a2zseotools.live/word-counter
-		title: Simple Word Counter | QUILL SEO Tools
-		keywords: word calculator, word counter, character counter online
-	-
-		url: https://wordcounter.net/
-		title: WordCounter - Count Words &amp; Correct Writing
-		description: Copy and paste your text into the online editor to count its words and characters, check keyword density, and correct writing mistakes. Bookmark it now, it’s free and easy.
-		keywords: word counter, word count, character count
-	-
-		url: https://docwordcounter.com/en/
-		title: Free Document Word Counter (2022) Accurately Counts the REAL number of words in your document. (Word, Excel, Powerpoint, PDF, OpenOffice, text)
-		description: Counts and classifies the words of a given document - not just the spaces. Supported file formats Word doc, docx; PDF pdf; Excel xls, xlsx; Powerpoint; ppt, pptx; Text xml, txt...
-		keywords: Word counter, Word classifier, Accurate word count, Support file formats Word doc, docx; PDF pdf; Excel xls, xlsx; Powerpoint; ppt, pptx; Text xml, txt, Chinese word count, Japanese word count, Korean word count, CJK word count, bullets, symbols, email addresses, actual words
-	-
-		url: https://www.kennistranslations.com/wordcount
-		description: Perform word counts of documents and web pages online and free!
-		keywords: wordcount, word count, fuzzies, PDF, HTML, XML
-		title: Kennis Counter | Online Word Count
-	-
-		url: https://countwordsfree.com/
-		title: Words and Characters Counter
-		description: Load or copy and paste any text to calculate its words and characters or phrases and punctuation. Count words in any PDF or Word documents!
-	-
-		url: https://www.lexika-translations.com/word-counter/
-		title: Word counter: Calculate the characters, words, and sentences | Lexika</title>
-		description: Calculate characters, words, sentences, and standard pages with ease by pasting your text into our free word counter.
-	-
-		url: https://www.wordcounttool.com/
-		title: Word Counter | Word Count Tool
-		description: Word Count Tool offers: ✅ 100% FREE word counter ✅ No Usage Limits ✅ More FREE tools to help you write better.
-	-
-		url: https://zutrix.com/word-counter
-		title: [100%] Free Word Counter️ [Word, Character Count] No ️Limits!
-		description: Meet 1 Free Word Counter Tool. With Zutrix's Word Counter Counts Words, Characters, Sentences and Paragraphs without any limits and 100% Free! Try Zutrix Word Counter now!
-	-
-		url: https://www.prepostseo.com/word-counter
-		title: Word Counter - Word Count Tool (Upload 50+ Files at once)</title>
-		description: Word Counter - Check 50+ files at once using word count tool. It calculate number of words, letters and characters quickly.
+ - url: https://a2zseotools.live/word-counter
+   title: Simple Word Counter | QUILL SEO Tools
+   keywords:
+      - word calculator
+      - word counter
+      - character
+      - counter online
+ - url: https://wordcounter.net/
+   title: WordCounter - Count Words &amp; Correct Writing
+   description: Copy and paste your text into the online editor to count its words and characters, check keyword density, and correct writing mistakes. Bookmark it now, it’s free and easy.
+   keywords:
+      - word counter
+      - word count
+      - character count
+ - url: https://docwordcounter.com/en/
+   title: Free Document Word Counter (2022) Accurately Counts the REAL number of words in your document. (Word, Excel, Powerpoint, PDF, OpenOffice, text)
+   description: Counts and classifies the words of a given document - not just the spaces. Supported file formats Word doc, docx; PDF pdf; Excel xls, xlsx; Powerpoint; ppt, pptx; Text xml, txt...
+   keywords:
+      - Word counter
+      - Word classifier
+      - Accurate word count
+      - Chinese word count
+      - Japanese word count
+      - Korean word count
+      - CJK word count
+      - bullets
+      - symbols
+      - actual words
+ - url: https://www.kennistranslations.com/wordcount
+   title: Kennis Counter | Online Word Count
+   description: Perform word counts of documents and web pages online and free!
+   keywords:
+      - wordcount
+      - word count
+      - fuzzies
+ - url: https://countwordsfree.com/
+   title: Words and Characters Counter
+   description: Load or copy and paste any text to calculate its words and characters or phrases and punctuation. Count words in any PDF or Word documents!
+ - url: https://www.lexika-translations.com/word-counter/
+   title: Word counter Calculate the characters, words, and sentences | Lexika</title>
+   description: Calculate characters, words, sentences, and standard pages with ease by pasting your text into our free word counter.
+ - url: https://www.wordcounttool.com/
+   title: Word Counter | Word Count Tool
+   description: Word Count Tool offers ✅ 100% FREE word counter ✅ No Usage Limits ✅ More FREE tools to help you write better.
+ - url: https://zutrix.com/word-counter
+   title: 100% Free Word Counter️ [Word, Character Count] No ️Limits!
+   description: Meet 1 Free Word Counter Tool. With Zutrix's Word Counter Counts Words, Characters, Sentences and Paragraphs without any limits and 100% Free! Try Zutrix Word Counter now!
+ - url: https://www.prepostseo.com/word-counter
+   title: Word Counter - Word Count Tool (Upload 50+ Files at once)</title>
+   description: Word Counter - Check 50+ files at once using word count tool. It calculate number of words, letters and characters quickly.
