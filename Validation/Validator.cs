@@ -92,14 +92,14 @@ namespace rules_of_seo.Validation
             List<RuleMessage> messages = new List<RuleMessage>();
             foreach (var chunk in c)
             {
-                if (string.IsNullOrWhiteSpace(chunk.Slug))
+                if (string.IsNullOrWhiteSpace(chunk.Key))
                 {
                     logger.LogError("No slug for chunk : " + chunk.Value);
                     continue;
                 }
 
-                var v = _ruleValidators[chunk.Slug];
-                var m = v.Validate(chunk, r[chunk.Slug]);
+                var v = _ruleValidators[chunk.Key];
+                var m = v.Validate(chunk, r[chunk.Key]);
                 if (m != null)
                 {
                     messages.Add(m);

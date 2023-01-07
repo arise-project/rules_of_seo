@@ -84,7 +84,7 @@ namespace rules_of_seo.Validation.Rules
             return new RuleMessage
             {
                 MessageLevel = MessageLevel.Info,
-                Message = $"Win competitors by length " + c.Slug
+                Message = $"Win competitors by length " + c.Key
             };
         }
     }

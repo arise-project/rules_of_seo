@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Microsoft.Extensions.Logging;
 using rules_of_seo.Model;
 using rules_of_seo.Service.Interface;
@@ -25,15 +27,14 @@ namespace rules_of_seo.Service
             do
             {
                 c = hierarchyWalker.Read();
-                if (!string.IsNullOrEmpty(c?.Slug))
+                if (!string.IsNullOrEmpty(c?.Key))
                 {
-                    logger.LogInformation($"Read {c.Slug}");
                     texts.Add(c);
                 }
             }
             while (c != null);
             hierarchyWalker.Close();
-
+            logger.LogInformation($"Texts: {string.Join(Environment.NewLine, texts.Select(r => r.Key))}");
             return texts;
         }
     }
