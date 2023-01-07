@@ -50,7 +50,15 @@ namespace rules_of_seo.Service
                 _settings.CompetitorFile);
 
             var text = File.ReadAllText(file);
-            return _deserializer.Deserialize<List<Competitor>>(text);
+            
+            try
+            {
+                return _deserializer.Deserialize<List<Competitor>>(text);
+            }
+            catch(Exception ex)
+            {
+                throw new Exception($"Error reading {file}", ex);
+            }
         }
     }
 }

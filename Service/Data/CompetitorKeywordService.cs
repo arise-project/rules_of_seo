@@ -49,7 +49,15 @@ namespace rules_of_seo.Service
                 _settings.CompetitorKeywordsFile);
 
             var text = File.ReadAllText(file);
-            return _deserializer.Deserialize<List<string>>(text);
+            
+            try
+            {
+                return _deserializer.Deserialize<List<string>>(text);
+            }
+            catch(Exception ex)
+            {
+                throw new Exception($"Error reading {file}", ex);
+            }
         }
     }
 }

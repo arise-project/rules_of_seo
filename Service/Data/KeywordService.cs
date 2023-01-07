@@ -49,7 +49,14 @@ namespace rules_of_seo.Service
                 app,
                 _settings.KeywordsFile);
             var text = File.ReadAllText(file);
-            return _deserializer.Deserialize<List<Keyword>>(text);
+            try
+            {
+                return _deserializer.Deserialize<List<Keyword>>(text);
+            }
+            catch(Exception ex)
+            {
+                throw new Exception($"Error reading {file}", ex);
+            }
         }
     }
 }
