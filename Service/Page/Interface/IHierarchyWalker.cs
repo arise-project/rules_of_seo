@@ -6,5 +6,6 @@ namespace rules_of_seo.Service.Interface
     {
         void Open(string textFile);
         public PageChunk? Read();
+        void Close();
     }
 }

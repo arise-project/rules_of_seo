@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using rules_of_seo.Service.Interface;
 
@@ -9,11 +10,11 @@ namespace rules_of_seo.Service
         {
             var d = key.Count(c => c == '.');
             var l = key.Split('.').Last();
-
+            
             switch(d)
             {
-                case 1:
-                    switch(key)
+                case 0:
+                    switch(l)
                     {
                         case "h1Text":
                         return "app-title";
@@ -33,8 +34,8 @@ namespace rules_of_seo.Service
                         return "app-faq-title";
                     }
                 break;
-                case 2:
-                switch(key)
+                case 1:
+                switch(l)
                     {
                         case "h1Text":
                         return "format-title";
@@ -50,7 +51,7 @@ namespace rules_of_seo.Service
                         return "format-faq-title";
                     }
                 break;
-                case 3:
+                case 2:
                 	break;
             }
 

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Microsoft.Extensions.Logging;
 using rules_of_seo.Model;
 using rules_of_seo.Service.Interface;
 
@@ -7,9 +8,11 @@ namespace rules_of_seo.Service
     public class PageService : IPageService
     {
         private readonly IHierarchyWalker hierarchyWalker;
+        private readonly ILogger<PageService> logger;
 
-        public PageService(IHierarchyWalker hierarchyWalker)
+        public PageService(IHierarchyWalker hierarchyWalker, ILogger<PageService> logger)
         {
+            this.logger = logger;
             this.hierarchyWalker = hierarchyWalker;
         }
 
@@ -18,16 +21,18 @@ namespace rules_of_seo.Service
             var texts = new List<PageChunk>();
             PageChunk? c;
 
+            hierarchyWalker.Open(fileName);
             do
             {
-                hierarchyWalker.Open(fileName);
                 c = hierarchyWalker.Read();
-                if(!string.IsNullOrEmpty(c?.Slug))
+                if (!string.IsNullOrEmpty(c?.Slug))
                 {
+                    logger.LogInformation($"Read {c.Slug}");
                     texts.Add(c);
                 }
             }
-            while(c != null);
+            while (c != null);
+            hierarchyWalker.Close();
 
             return texts;
         }

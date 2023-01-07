@@ -7,12 +7,12 @@ using rules_of_seo.Service.Interface;
 
 namespace rules_of_seo.Service
 {
-    public class HierarchyWalker : IHierarchyWalker, IDisposable
+    public class HierarchyWalker : IHierarchyWalker
     {
         private readonly IKeyToSlugResolver slugResolver;
         private readonly ILogger<HierarchyWalker> logger;
         private JsonTextReader? Reader;
-        private bool disposedValue;
+        private string fileName;
 
         public HierarchyWalker(IKeyToSlugResolver slugResolver, ILogger<HierarchyWalker> logger)
         {
@@ -22,8 +22,10 @@ namespace rules_of_seo.Service
 
         public void Open(string textFile)
         {
+            logger.LogInformation($"Open {textFile}");
             var jsonText = File.ReadAllText(textFile);
             Reader = new JsonTextReader(new StringReader(jsonText));
+            fileName = textFile;
         }
 
         public PageChunk? Read()
@@ -38,6 +40,14 @@ namespace rules_of_seo.Service
             {
                 if (Reader.TokenType == JsonToken.String)
                 {
+                    var s = slugResolver.Resolve(Reader.Path);
+                    if (s == null)
+                    {
+                        logger.LogWarning($"Unknown {Reader.Path} {Reader.Depth} {Reader.Value}");
+                        continue;
+                    }
+
+                    logger.LogInformation($"Read {s} {Reader.Depth} {Reader.Value}");
                     return new PageChunk
                     {
                         Slug = slugResolver.Resolve(Reader.Path),
@@ -50,34 +60,13 @@ namespace rules_of_seo.Service
             return null;
         }
 
-        protected virtual void Dispose(bool disposing)
+        public void Close()
         {
-            if (!disposedValue)
+            if (Reader != null)
             {
-                if (disposing && Reader != null)
-                {
-                    // TODO: dispose managed state (managed objects)
-                    Reader.Close();
-                }
-
-                // TODO: free unmanaged resources (unmanaged objects) and override finalizer
-                // TODO: set large fields to null
-                disposedValue = true;
+                logger.LogInformation("Closed file " + fileName);
+                Reader.Close();
             }
-        }
-
-        // // TODO: override finalizer only if 'Dispose(bool disposing)' has code to free unmanaged resources
-        // ~HierarchyWalker()
-        // {
-        //     // Do not change this code. Put cleanup code in 'Dispose(bool disposing)' method
-        //     Dispose(disposing: false);
-        // }
-
-        public void Dispose()
-        {
-            // Do not change this code. Put cleanup code in 'Dispose(bool disposing)' method
-            Dispose(disposing: true);
-            GC.SuppressFinalize(this);
         }
     }
 }
