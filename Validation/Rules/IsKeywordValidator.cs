@@ -78,7 +78,7 @@ namespace rules_of_seo.Validation.Rules
                     return new RuleMessage
                     {
                         MessageLevel = MessageLevel.Error,
-                        Message = "Sould be keyword " + k + "in " + c.Value
+                        Message = "Sould be keyword " + k.Key + " in " + c.Value
                     };
                 }
             }

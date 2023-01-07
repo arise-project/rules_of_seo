@@ -101,6 +101,12 @@ namespace rules_of_seo.Validation
                 }
 
                 List<RuleMessage> combined = new List<RuleMessage>();
+                if(!r.ContainsKey(chunk.Slug))
+                {
+                    logger.LogError("No rule for chunk : " + chunk.Slug + " " + chunk.Value);
+                    continue;
+                }
+                
                 var rule = r[chunk.Slug];
                 foreach(var validator in _ruleValidators.Values)
                 {
