@@ -14,7 +14,7 @@ namespace rules_of_seo.Validation.Rules
             _seoRepository = seoRepository;
         }
 
-        public string Slug { get; } = "max-length";
+        public string RuleName { get; } = "max-length";
 
         // check max length is not exid
         public RuleMessage? Validate(PageChunk c, Rule r)

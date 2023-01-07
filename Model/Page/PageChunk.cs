@@ -2,7 +2,7 @@ namespace rules_of_seo.Model
 {
     public class PageChunk
     {
-        public string? Key { get; set; }
+        public string? Slug { get; set; }
 
         public string? Value { get; set; }
 

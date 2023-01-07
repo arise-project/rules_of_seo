@@ -24,7 +24,7 @@ namespace rules_of_seo.Validation.Rules
             this.logger = logger;
         }
 
-        public string Slug { get; } = "end-keyword";
+        public string RuleName { get; } = "end-keyword";
 
         // text ends with keyword
         public RuleMessage? Validate(PageChunk c, Rule r)

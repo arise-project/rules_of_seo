@@ -24,7 +24,7 @@ namespace rules_of_seo.Validation.Rules
             this.logger = logger;
         }
 
-        public string Slug { get; } = "start-keyword";
+        public string RuleName { get; } = "start-keyword";
 
         // check is text starts with any keyword
         public RuleMessage? Validate(PageChunk c, Rule r)

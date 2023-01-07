@@ -19,7 +19,7 @@ namespace rules_of_seo.Validation.Rules
             _seoRepository = seoRepository;
         }
 
-        public string Slug { get; } = "max-keywords";
+        public string RuleName { get; } = "max-keywords";
 
         // do not use a lot of keywords
         public RuleMessage? Validate(PageChunk c, Rule r)

@@ -50,7 +50,7 @@ namespace rules_of_seo.Service
                     logger.LogInformation($"Read {s} {Reader.Depth} {Reader.Value}");
                     return new PageChunk
                     {
-                        Key = slugResolver.Resolve(Reader.Path),
+                        Slug = slugResolver.Resolve(Reader.Path),
                         Value = Reader.Value?.ToString(),
                         Depth = Reader.Depth
                     };

@@ -24,7 +24,7 @@ namespace rules_of_seo.Validation.Rules
             this.logger = logger;
         }
 
-        public string Slug { get; } = "max-competitor-length";
+        public string RuleName { get; } = "max-competitor-length";
 
         // win competitors by length
         public RuleMessage? Validate(PageChunk c, Rule r)
@@ -84,7 +84,7 @@ namespace rules_of_seo.Validation.Rules
             return new RuleMessage
             {
                 MessageLevel = MessageLevel.Info,
-                Message = $"Win competitors by length " + c.Key
+                Message = $"Win competitors by length " + c.Slug
             };
         }
     }

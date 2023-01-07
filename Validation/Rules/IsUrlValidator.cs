@@ -14,7 +14,7 @@ namespace rules_of_seo.Validation.Rules
             _seoRepository = seoRepository;
         }
 
-        public string Slug { get; } = "is-url";
+        public string RuleName { get; } = "is-url";
 
         // is this required? because this for segmet keyword read
         public RuleMessage? Validate(PageChunk c, Rule r)

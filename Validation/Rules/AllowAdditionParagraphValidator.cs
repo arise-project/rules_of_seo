@@ -18,7 +18,7 @@ namespace rules_of_seo.Validation.Rules
             this.logger = logger;
         }
 
-        public string Slug { get; } = "allow-addition-paragraph";
+        public string RuleName { get; } = "allow-addition-paragraph";
 
         public const string ParagraphTagBeg = "<p>";
         public const string ParagraphTagEnd = "</p>";

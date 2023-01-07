@@ -27,14 +27,14 @@ namespace rules_of_seo.Service
             do
             {
                 c = hierarchyWalker.Read();
-                if (!string.IsNullOrEmpty(c?.Key))
+                if (!string.IsNullOrEmpty(c?.Slug))
                 {
                     texts.Add(c);
                 }
             }
             while (c != null);
             hierarchyWalker.Close();
-            logger.LogInformation($"Texts: {string.Join(Environment.NewLine, texts.Select(r => r.Key))}");
+            logger.LogInformation($"Texts: {string.Join(Environment.NewLine, texts.Select(r => r.Slug))}");
             return texts;
         }
     }

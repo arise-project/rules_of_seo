@@ -24,7 +24,7 @@ namespace rules_of_seo.Validation.Rules
             this.logger = logger;
         }
 
-        public string Slug { get; } = "is-keyword";
+        public string RuleName { get; } = "is-keyword";
 
         // check all text is keyword
         public RuleMessage? Validate(PageChunk c, Rule r)

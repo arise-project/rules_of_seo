@@ -19,7 +19,7 @@ namespace rules_of_seo.Validation.Rules
             _seoRepository = seoRepository;
         }
 
-        public string Slug { get; } = "check-plagiat";
+        public string RuleName { get; } = "check-plagiat";
 
         // this possible to check within available top competitors
         public RuleMessage? Validate(PageChunk c, Rule r)

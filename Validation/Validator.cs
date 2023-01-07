@@ -66,22 +66,22 @@ namespace rules_of_seo.Validation
             this.logger = logger;
             _ruleValidators = new Dictionary<string, IRuleValidator>
                             {
-                                  { allowAdditionParagraphValidator.Slug, allowAdditionParagraphValidator },
-                                  { checkPlagiatValidator.Slug, checkPlagiatValidator },
-                                  { competitorsMixValidator.Slug, competitorsMixValidator },
-                                  { endKeywordValidator.Slug, endKeywordValidator },
-                                  { firstIncludeOthersValidator.Slug, firstIncludeOthersValidator },
-                                  { isKeywordValidator.Slug, isKeywordValidator },
-                                  { isUrlValidator.Slug, isUrlValidator },
-                                  { maxCompetitorLengthValidator.Slug, maxCompetitorLengthValidator },
-                                  { maxKeywordsValidator.Slug, maxKeywordsValidator },
-                                  { maxLengthValidator.Slug, maxLengthValidator },
-                                  { middleKeywordValidator.Slug, middleKeywordValidator },
-                                  { minKeywordsValidator.Slug, minKeywordsValidator },
-                                  { minLengthValidator.Slug, minLengthValidator },
-                                  { refValidator.Slug, refValidator },
-                                  { startKeywordValidator.Slug, startKeywordValidator },
-                                  { uniqueValidator.Slug, uniqueValidator },
+                                  { allowAdditionParagraphValidator.RuleName, allowAdditionParagraphValidator },
+                                  { checkPlagiatValidator.RuleName, checkPlagiatValidator },
+                                  { competitorsMixValidator.RuleName, competitorsMixValidator },
+                                  { endKeywordValidator.RuleName, endKeywordValidator },
+                                  { firstIncludeOthersValidator.RuleName, firstIncludeOthersValidator },
+                                  { isKeywordValidator.RuleName, isKeywordValidator },
+                                  { isUrlValidator.RuleName, isUrlValidator },
+                                  { maxCompetitorLengthValidator.RuleName, maxCompetitorLengthValidator },
+                                  { maxKeywordsValidator.RuleName, maxKeywordsValidator },
+                                  { maxLengthValidator.RuleName, maxLengthValidator },
+                                  { middleKeywordValidator.RuleName, middleKeywordValidator },
+                                  { minKeywordsValidator.RuleName, minKeywordsValidator },
+                                  { minLengthValidator.RuleName, minLengthValidator },
+                                  { refValidator.RuleName, refValidator },
+                                  { startKeywordValidator.RuleName, startKeywordValidator },
+                                  { uniqueValidator.RuleName, uniqueValidator },
                             };
         }
 
@@ -92,17 +92,20 @@ namespace rules_of_seo.Validation
             List<RuleMessage> messages = new List<RuleMessage>();
             foreach (var chunk in c)
             {
-                if (string.IsNullOrWhiteSpace(chunk.Key))
+                if (string.IsNullOrWhiteSpace(chunk.Slug))
                 {
                     logger.LogError("No slug for chunk : " + chunk.Value);
                     continue;
                 }
 
-                var v = _ruleValidators[chunk.Key];
-                var m = v.Validate(chunk, r[chunk.Key]);
-                if (m != null)
+                var rule = r[chunk.Slug];
+                foreach(var validator in _ruleValidators.Values)
                 {
-                    messages.Add(m);
+                    var m = validator.Validate(chunk, rule);
+                    if (m != null)
+                    {
+                        messages.Add(m);
+                    }
                 }
             }
 
