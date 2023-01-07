@@ -64,7 +64,7 @@ namespace rules_of_seo.Validation.Rules
                     };
                 }
 
-                if (c.Value?.EndsWith(k.Key) == true)
+                if (c.Value?.EndsWith(k.Key, StringComparison.OrdinalIgnoreCase) == true)
                 {
                     return new RuleMessage
                     {

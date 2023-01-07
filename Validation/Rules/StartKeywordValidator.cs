@@ -73,7 +73,7 @@ namespace rules_of_seo.Validation.Rules
                     };
                 }
 
-                if (c.Value.StartsWith(k.Key))
+                if (c.Value.StartsWith(k.Key, StringComparison.OrdinalIgnoreCase))
                 {
                     return new RuleMessage
                     {

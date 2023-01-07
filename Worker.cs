@@ -15,17 +15,20 @@ namespace rules_of_seo
         private readonly IValidationUnit  _validation;
         private readonly ILogger<Worker> _logger;
         private readonly Settings _settings;
+        private readonly IApplicationLifetime applicationLifetime;
 
         public Worker(
             IOptions<AppConfig> config,
             IValidationUnit validation,
             ILogger<Worker> logger,
-            Settings settings)
+            Settings settings,
+            IApplicationLifetime applicationLifetime)
         {
             _config = config.Value;
             _validation = validation;
             _logger = logger;
             _settings = settings;
+            this.applicationLifetime = applicationLifetime;
         }
 
         protected override async Task ExecuteAsync(
@@ -37,6 +40,7 @@ namespace rules_of_seo
                 	try
                 	{
                 		_validation.Execute();
+                        applicationLifetime.StopApplication();
                 	}
                 	catch(Exception ex)
                 	{

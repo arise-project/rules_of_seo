@@ -74,7 +74,7 @@ namespace rules_of_seo.Validation.Rules
 
             if (m > c.Value.Length)
             {
-                new RuleMessage
+                return new RuleMessage
                 {
                     MessageLevel = MessageLevel.Error,
                     Message = $"Found competitor with larger text when " + c.Value

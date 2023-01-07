@@ -69,7 +69,7 @@ namespace rules_of_seo.Validation.Rules
                     return new RuleMessage
                     {
                         MessageLevel = MessageLevel.Info,
-                        Message = "Text is keyword :" + c.Value
+                        Message = "Text is keyword : " + c.Value
                     };
                 }
 
