@@ -45,7 +45,7 @@ namespace rules_of_seo.Service
                 throw new Exception();
             }
 
-            Apps = Directory.GetDirectories(_config.DataFolder).ToList();
+            Apps = Directory.GetDirectories(_config.DataFolder).Select(f => new DirectoryInfo(f).Name).ToList();
 
             foreach (var app in Apps)
             {

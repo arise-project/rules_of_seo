@@ -46,6 +46,7 @@ namespace rules_of_seo.Service
 
             var file = Path.Combine(
                 _config.DataFolder,
+                app,
                 _settings.CompetitorFile);
 
             var text = File.ReadAllText(file);

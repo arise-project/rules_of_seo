@@ -6,6 +6,7 @@ using Microsoft.Extensions.Options;
 using rules_of_seo.Config;
 using rules_of_seo.Model;
 using rules_of_seo.Service.Interface;
+using rules_of_seo.Service.Interfaces;
 using rules_of_seo.Validation.Interfaces;
 
 namespace rules_of_seo.Service
@@ -17,12 +18,14 @@ namespace rules_of_seo.Service
         private readonly IPageService _pageService;
         private readonly IValidator _validator;
         private readonly ILogger<ValidationUnit> logger;
+        private readonly ISeoRepository seoRepository;
 
         public ValidationUnit(
             IOptions<AppConfig> config,
             IRuleService ruleService,
             IPageService pageService,
             IValidator validator,
+            ISeoRepository seoRepository,
             ILogger<ValidationUnit> logger
             )
         {
@@ -31,6 +34,7 @@ namespace rules_of_seo.Service
             _pageService = pageService;
             _validator = validator;
             this.logger = logger;
+            this.seoRepository = seoRepository;
         }
 
         public void Execute()
@@ -52,6 +56,8 @@ namespace rules_of_seo.Service
                 logger.LogError("Set Config TextFolder");
                 throw new Exception();
             }
+
+            seoRepository.Read();
 
             var rules = _ruleService.GetRules();
             var pages = new List<PageFile>();

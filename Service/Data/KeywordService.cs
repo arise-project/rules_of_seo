@@ -46,6 +46,7 @@ namespace rules_of_seo.Service
 
             var file = Path.Combine(
                 _config.DataFolder,
+                app,
                 _settings.KeywordsFile);
             var text = File.ReadAllText(file);
             return _deserializer.Deserialize<List<Keyword>>(text);

@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Microsoft.Extensions.Logging;
 using rules_of_seo.Config;
 using rules_of_seo.Model;
@@ -98,15 +100,22 @@ namespace rules_of_seo.Validation
                     continue;
                 }
 
+                List<RuleMessage> combined = new List<RuleMessage>();
                 var rule = r[chunk.Slug];
                 foreach(var validator in _ruleValidators.Values)
                 {
                     var m = validator.Validate(chunk, rule);
                     if (m != null)
                     {
-                        messages.Add(m);
+                        combined.Add(m);
                     }
                 }
+
+                logger.LogInformation($"{chunk.Slug}: {string.Join(Environment.NewLine, combined.Where(m => m.MessageLevel == MessageLevel.Info).Select(m => m.Message))}");
+
+                logger.LogError($"{chunk.Slug}: {string.Join(Environment.NewLine, combined.Where(m => m.MessageLevel != MessageLevel.Info).Select(m => m.Message))}");
+
+                messages.AddRange(combined);
             }
 
             return messages;
