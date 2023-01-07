@@ -20,6 +20,7 @@ namespace rules_of_seo.Service
 
             do
             {
+                hierarchyWalker.Open(fileName);
                 c = hierarchyWalker.Read();
                 if(!string.IsNullOrEmpty(c?.Slug))
                 {
