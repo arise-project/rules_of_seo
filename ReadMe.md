@@ -1,8 +1,6 @@
 # Rules of SEO
 
-# Webpage Validation Utility (.NET)
-
-The Webpage Validation Utility is a .NET tool designed to check whether a webpage adheres to specified rules. These rules define various aspects of the webpage content, such as titles, descriptions, and segments. The utility leverages a set of rules, keywords, and competitor information to validate the webpage content.
+Rules of SEO is a .NET tool designed to check whether a webpage adheres to specified rules. These rules define various aspects of the webpage content, such as titles, descriptions, and segments. The utility leverages a set of rules, keywords, and competitor information to validate the webpage content.
 
 ## Table of Contents
 
